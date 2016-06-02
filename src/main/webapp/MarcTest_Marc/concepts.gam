@@ -38,7 +38,7 @@ Rules{
         #[order]:Integer `1`
 	title `Rules of chess`
         h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	#content:String =`~ return "[[=pawn_text.xhtml]]";`
 	
 }
 Notation{
