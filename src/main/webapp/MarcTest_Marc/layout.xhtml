@@ -11,6 +11,20 @@
 <body>
 <gale:object data="header.xhtml" />
 <gale:object data="menu.xhtml" />
+<gale:for var="concept" expr="${->(extends)}">
+    <gale:if expr="${%concept} == ${Professional}">
+        <gale:then>
+            <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
+        </gale:then>
+        <gale:else>
+            <gale:if expr="${.} == ${Professional}">
+                <gale:then>
+                    <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
+                </gale:then>
+            </gale:if>
+        </gale:else>
+    </gale:if>
+</gale:for>
 <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
 </body>
 </html>

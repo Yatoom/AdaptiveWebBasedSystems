@@ -1,3 +1,4 @@
 nb-configuration.xml
 target/*
 src/main/webapp/Milkyway_admin/
+src/main/webapp/thesis/

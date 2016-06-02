@@ -16,6 +16,7 @@ Chess{
         h1 `Welcome to the Chess guide`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Starters{
         ->(extends) General
@@ -29,46 +30,52 @@ Starters{
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Rules{
         ->(extends) General
+        ->(extends) Starters
         #[order]:Integer `1`
 	title `Rules of chess`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Notation{
         ->(extends) General
+        ->(extends) Starters
         #[order]:Integer `2`
 	title `Algebraic notation`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Patterns{
         ->(extends) General
+        ->(extends) Starters
         #[order]:Integer `3`
 	title `Simple patterns`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Openings{
         ->(extends) General
+        ->(extends) Starters
         #[order]:Integer `4`
 	title `Rules of the opening`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Tactics{
+        ->(extends) Starters
         ->(extends) General
         #[order]:Integer `5`
 	title `Making wise captures`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Professional{
         ->(extends) General
@@ -83,9 +90,12 @@ Professional{
 	title `Professional`
         h1 `Tutorial for advanced players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        #prof =`~ return "[[=xml/prof.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Tactics2{
+        ->(extends) Professional
         ->(extends) General
         ->(child) Forks
         ->(child) Pinning
@@ -99,73 +109,82 @@ Tactics2{
 	title `Tactics`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Forks{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
 	title `Forks`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Pinning{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
 	title `Pinning`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Skewers{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
 	title `Skewers`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Uncovering{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
 	title `Uncovering`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Remdef{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `5`
 	title `Remove the defender`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Overloading{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
 	title `Overloading`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Deflection{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `7`
 	title `Deflection`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Decoying{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `8`
 	title `Decoying`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Openings2{
+        ->(extends) Professional
         ->(extends) General
         ->(child) OpeningSurvey1
         ->(child) OpeningSurvey2
@@ -181,105 +200,117 @@ Openings2{
 	title `Some openings`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey1{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
 	title `Albin Counter-Gambit`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey2{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
 	title `King's Indian Defence`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey3{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `7`
 	title `Nimzo-Indian Defence`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey4{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
 	title `Benko Gambit`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey5{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `8`
 	title `Queen's Gambit`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey6{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `5`
-	title `Grunfeld Defence`
+	title `Gruenfeld Defence`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
 }
 OpeningSurvey7{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `9`
 	title `Sicilian Defence`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey8{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
 	title `Danish Gambit`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey9{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
 	title `Dutch Defence`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 OpeningSurvey10{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `10`
 	title `Vienna`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Quiz{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
 	title `Best move quiz`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Clock{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
 	title `The chess clock`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Tips{
+        ->(extends) Professional
         ->(extends) General
         ->(child) WinningTips
         ->(child) ImprovingTips
@@ -287,37 +318,91 @@ Tips{
 	title `Tips`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 WinningTips{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
 	title `Winning tips`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 ImprovingTips{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
 	title `Improving tips`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Improve{
+        ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
 	title `Improve your play`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
 }
 Repertoire{
+        ->(extends) Professional
         ->(extends) General
+        ->(child) Repertoire1
+        ->(child) Repertoire2
+        ->(child) Repertoire3
+        ->(child) Repertoire4
+        ->(child) Repertoire5
         #[order]:Integer `7`
 	title `Opening repertoire`
         h1 `Tutorial for professional players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
+	
+}
+Repertoire1{
+        ->(extends) Professional
+        ->(extends) General
+        #[order]:Integer `1`
+	title `Benko Gambit`
+        h1 `Tutorial for professional players`
+	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	
+}
+Repertoire2{
+        ->(extends) Professional
+        ->(extends) General
+        #[order]:Integer `2`
+	title `Gruenfeld defence`
+        h1 `Tutorial for professional players`
+	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	
+}
+Repertoire3{
+        ->(extends) Professional
+        ->(extends) General
+        #[order]:Integer `3`
+	title `King's Indian Defence`
+        h1 `Tutorial for professional players`
+	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	
+}
+Repertoire4{
+        ->(extends) Professional
+        ->(extends) General
+        #[order]:Integer `5`
+	title `Queen's Gambit`
+        h1 `Tutorial for professional players`
+	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	
+}
+Repertoire5{
+        ->(extends) Professional
+        ->(extends) General
+        #[order]:Integer `4`
+	title `Nimzo-Indian Defence`
+        h1 `Tutorial for professional players`
+	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	
 }
