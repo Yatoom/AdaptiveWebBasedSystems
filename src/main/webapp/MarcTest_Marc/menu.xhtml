@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nav id="menubar" xmlns:gale="http://gale.tue.nl/adaptation">
+    <ul class="menu">
+        <gale:for var="concept" expr="${->(extends)}">
+            <gale:for var="m1" expr="${%concept->(child)}" sort="${#order}">
+                <gale:if expr="${%m1->(child)}.length &gt; 0">
+                    <gale:then>
+                        <li class="submenu" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a>
+                            <ul>
+                                <gale:for var="m2" expr="${%m1->(child)}" sort="${#order}">
+                                    <gale:if expr="${%m2->(child)}.length &gt; 0">
+                                        <gale:then>
+                                            <li class="subsubmenu" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a>
+                                                <ul>
+                                                    <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
+                                                        <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
+                                                    </gale:for>
+                                                </ul>
+                                            </li>
+                                        </gale:then>
+                                        <gale:else>
+                                            <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a></li>
+                                        </gale:else>
+                                    </gale:if>
+                                </gale:for>
+                            </ul>
+                        </li>
+                    </gale:then>
+                    <gale:else>
+                        <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
+                    </gale:else>
+                </gale:if>
+            </gale:for>
+        </gale:for>
+    </ul>
+</nav>
