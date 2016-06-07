@@ -20,6 +20,7 @@ Chess{
 }
 Starters{
         ->(extends) General
+        ->(child) Introduction of the Chess Pieces
         ->(child) Rules
         ->(child) Notation
         ->(child) Patterns
@@ -32,6 +33,24 @@ Starters{
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
+Introduction of the Chess Pieces{
+        ->(extends) General
+        ->(extends) Starters
+        ->(child) Pawn
+        ->(child) Knight
+        ->(child) Bishop
+        ->(child) Rook
+        ->(child) Queen
+        ->(child) King
+
+        #[order]:Integer `1`
+        title `Starters`
+                h1 `Tutorial for beginners`
+        	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        	#resource =`~ return "[[=layout.xhtml]]";`
+
+}
+
 Rules{
         ->(extends) General
         ->(extends) Starters
