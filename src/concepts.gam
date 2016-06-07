@@ -20,7 +20,7 @@ Chess{
 }
 Starters{
         ->(extends) General
-        ->(child) Introduction of the Chess Pieces
+        ->(child) IntroductionOfTheChessPieces
         ->(child) Rules
         ->(child) Notation
         ->(child) Patterns
@@ -33,7 +33,7 @@ Starters{
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
-Introduction of the Chess Pieces{
+IntroductionOfTheChessPieces{
         ->(extends) General
         ->(extends) Starters
         ->(child) Pawn
