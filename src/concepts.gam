@@ -44,22 +44,13 @@ Introduction of the Chess Pieces{
         ->(child) King
 
         #[order]:Integer `1`
-        title `Starters`
-                h1 `Tutorial for beginners`
+        title `Introduction to the Chess Pieces`
+                h1 `Introduction to the Chess Pieces`
         	#content:String =`~ return "[[=placeholder.xhtml]]";`
         	#resource =`~ return "[[=layout.xhtml]]";`
 
 }
 
-Rules{
-        ->(extends) General
-        ->(extends) Starters
-        #[order]:Integer `1`
-	title `Rules of chess`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=xml/pawn_text.xhtml]]";`
-	
-}
 Notation{
         ->(extends) General
         ->(extends) Starters
