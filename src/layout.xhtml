@@ -9,6 +9,7 @@
     <script src="script.js"></script>
 </head>
 <body>
+<div class='page'>
 <gale:object data="header.xhtml" />
 <gale:object data="menu.xhtml" />
 <gale:for var="concept" expr="${->(extends)}">
@@ -26,5 +27,6 @@
     </gale:if>
 </gale:for>
 <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
+</div>
 </body>
 </html>
