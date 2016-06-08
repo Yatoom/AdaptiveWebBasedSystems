@@ -4,13 +4,13 @@
         <gale:for var="m1" expr="${General->(child)}" sort="${#order}">
             <gale:if expr="${%m1->(child)}.length &gt; 0">
                 <gale:then>
-                    <li class="submenu" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a>
-                        <ul>
+                    <li class="menu__item" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/> <i class="fa fa-caret-down" aria-hidden="true"></i></gale:a>
+                        <ul class='submenu'>
                             <gale:for var="m2" expr="${%m1->(child)}" sort="${#order}">
                                 <gale:if expr="${%m2->(child)}.length &gt; 0">
                                     <gale:then>
-                                        <li class="subsubmenu" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a>
-                                            <ul>
+                                        <li class="submenu__item" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/> <i class="fa fa-caret-right" aria-hidden="true"></i></gale:a>
+                                            <ul class="subsubmenu">
                                                 <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
                                                     <li class='subsubmenu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
                                                 </gale:for>
@@ -18,7 +18,7 @@
                                         </li>
                                     </gale:then>
                                     <gale:else>
-                                        <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a></li>
+                                        <li class='submenu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a></li>
                                     </gale:else>
                                 </gale:if>
                             </gale:for>
@@ -26,7 +26,7 @@
                     </li>
                 </gale:then>
                 <gale:else>
-                    <li class='submenu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
+                    <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
                 </gale:else>
             </gale:if>
         </gale:for>

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass --include-path scss src/scss/main.scss build/css/bundle.css",
-    "copy": "shx cp -r src/{js,img,*.xhtml,concepts.gam,templates} build/",
-    "build": "npm run build-css && npm run copy",
+    "copy": "shx cp -r src/{img,*.xhtml,concepts.gam,templates,vendor} build/",
+    "build": "npm run build-css && shx cat src/js/* > build/js/bundle.js && npm run copy",
     "push": "sshpass -p '2IMW25_g3' rsync -r build as3_2016@wwwis.win.tue.nl:/home/as3_2016/public_html/ --progress"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "shx": "^0.1.2"
   },
   "dependencies": {
+    "font-awesome": "^4.6.3",
     "fontawesome": "file:node_modules/fontawesome"
   }
 }

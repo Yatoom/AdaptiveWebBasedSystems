@@ -2,8 +2,7 @@
   BASE: HTML ELEMENTS ONLY
 ============================================================================= */
 * {
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -14,6 +13,7 @@ body {
   background: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
+  margin: 0;
 }
 
 main {
