@@ -13,7 +13,6 @@
 }
 
 .menu__item {
-  position: relative;
   list-style-type: none;
   
   a {
@@ -34,10 +33,15 @@
   }
 }
 
+.menu__item--sub {
+  position: relative;
+}
+
 .submenu {
   display: none;
   position: absolute;
   list-style-type: none;
+  padding-left: 0;
   border: 1px solid rgb(202, 202, 202);
   background: white;
 }

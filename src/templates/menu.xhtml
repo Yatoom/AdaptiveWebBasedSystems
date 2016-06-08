@@ -9,8 +9,8 @@
                             <gale:for var="m2" expr="${%m1->(child)}" sort="${#order}">
                                 <gale:if expr="${%m2->(child)}.length &gt; 0">
                                     <gale:then>
-                                        <li class="menu__item" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/> <i class="fa fa-caret-right" aria-hidden="true"></i></gale:a>
-                                            <ul class="submenu--sub">
+                                        <li class="menu__item menu__item--sub" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/> <i class="fa fa-caret-right" aria-hidden="true"></i></gale:a>
+                                            <ul class="submenu submenu--sub">
                                                 <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
                                                     <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
                                                 </gale:for>
