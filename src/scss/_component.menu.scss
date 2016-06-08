@@ -4,12 +4,25 @@
 
 .navigation {
   width: 100%;
+  // border-bottom: 1px solid #cacaca;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px 0 #222;
+  padding-top: 20px;
 }
 
 .menu {
   width: 100%;
   padding-left: 0;
   margin: 0;
+}
+
+.name {
+  padding: 20px;
+  text-transform: uppercase;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  float: left;
 }
 
 .menu__item {
@@ -28,7 +41,7 @@
 .menu__item--main {
   display: inline-block;
   
-  a {
+  > a {
     padding: 20px;
   }
 }
@@ -51,61 +64,3 @@
   left: 100%;
   width: 100%;  
 }
-
-
-// .menu__item {
-//   list-style-type: none;
-//   text-align: center;
-//   display: inline-block;
-//   padding: 20px;
-// }
-
-// .submenu {
-//   display: none;
-//   position: absolute;
-//   list-style-type: none;
-//   text-align: left;
-//   padding: 0;
-//   border: 1px solid rgb(202, 202, 202);
-//   background: white;
-// }
-
-// .submenu__item {
-//   position: relative;
-  
-//   a {
-//     padding: 10px;
-//     display: block;
-//   }
-
-//   &:hover {
-//     background: whitesmoke;
-//   } 
-// }
-
-// .subsubmenu {
-//   display: none;
-//   position: absolute;
-//   text-align: left;
-//   left: 100%;
-//   top: -1px;
-//   width: 100%;
-//   text-align: left;
-//   padding: 0;
-//   background: white;
-//   border: 1px solid rgb(202, 202, 202);  
-// }
-
-// .subsubmenu__item {
-//   list-style-type: none;
-//   text-align: center;
-  
-//   a {
-//     padding: 10px;
-//     display: block;
-//   }  
-  
-//   &:hover {
-//     background: whitesmoke;
-//   } 
-// }

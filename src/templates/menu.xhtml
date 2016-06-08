@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nav class="navigation" xmlns:gale="http://gale.tue.nl/adaptation">
+  <div class='grid'>
+    <div class='name'>
+      Chess edge
+    </div>
     <ul class="menu">
         <gale:for var="m1" expr="${General->(child)}" sort="${#order}">
             <gale:if expr="${%m1->(child)}.length &gt; 0">
@@ -31,4 +35,5 @@
             </gale:if>
         </gale:for>
     </ul>
+    </div>
 </nav>
