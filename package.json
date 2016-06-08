@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass --include-path scss src/scss/main.scss build/css/bundle.css",
-    "copy": "shx cp -r src/{js,img,layout.xhtml,concepts.gam,templates} build/",
-    "build": "npm run build-css && npm run copy"
+    "copy": "shx cp -r src/{js,img,*.xhtml,concepts.gam,templates} build/",
+    "build": "npm run build-css && npm run copy",
+    "push": "sshpass -p '2IMW25_g3' rsync -r build as3_2016@wwwis.win.tue.nl:/home/as3_2016/public_html/ --progress"
   },
   "repository": {
     "type": "git",
