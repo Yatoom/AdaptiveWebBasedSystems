@@ -1,0 +1,35 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "Project for Adaptive Web Based Systems",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss src/scss/main.scss build/css/bundle.css",
+    "copy": "shx cp -r src/{js,img,layout.xhtml,concepts.gam,templates} build/",
+    "build": "npm run build-css && npm run copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yatoom/AdaptiveWebBasedSystems.git"
+  },
+  "keywords": [
+    "chess",
+    "adaptive",
+    "learning"
+  ],
+  "author": "Jeroen, Marc and Hub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yatoom/AdaptiveWebBasedSystems/issues"
+  },
+  "homepage": "https://github.com/Yatoom/AdaptiveWebBasedSystems#readme",
+  "devDependencies": {
+    "node-sass": "^3.7.0",
+    "nodemon": "^1.9.2",
+    "shelljs": "^0.7.0",
+    "shx": "^0.1.2"
+  },
+  "dependencies": {
+    "fontawesome": "file:node_modules/fontawesome"
+  }
+}

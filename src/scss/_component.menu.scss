@@ -1,0 +1,36 @@
+/* =============================================================================
+  MENU COMPONENT
+============================================================================= */
+
+.navigation {
+  width: 100%;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu__item {
+  list-style-type: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+}
+
+.submenu__item {
+  
+}
+
+.subsubmenu {
+  display: none;
+  position: absolute;
+}
+
+.subsubmenu__item {
+  list-style-type: none;
+  text-align: center;
+}

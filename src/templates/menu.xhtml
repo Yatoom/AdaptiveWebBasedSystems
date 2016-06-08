@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<nav id="menubar" xmlns:gale="http://gale.tue.nl/adaptation">
+<nav class="navigation" xmlns:gale="http://gale.tue.nl/adaptation">
     <ul class="menu">
         <gale:for var="m1" expr="${General->(child)}" sort="${#order}">
             <gale:if expr="${%m1->(child)}.length &gt; 0">
@@ -12,7 +12,7 @@
                                         <li class="subsubmenu" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a>
                                             <ul>
                                                 <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
-                                                    <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
+                                                    <li class='subsubmenu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
                                                 </gale:for>
                                             </ul>
                                         </li>
@@ -26,7 +26,7 @@
                     </li>
                 </gale:then>
                 <gale:else>
-                    <li onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
+                    <li class='submenu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
                 </gale:else>
             </gale:if>
         </gale:for>
