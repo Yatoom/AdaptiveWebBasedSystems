@@ -3,6 +3,7 @@ $options { default.properties "event;strict"}
 General{
         ->(child) Chess
         ->(child) Starters
+        ->(child) Optional
         ->(child) Professional
         #header:String `img/header.png`
         #suitability:Boolean = `true`
@@ -14,21 +15,20 @@ Chess{
 	title `Home`
         #[order]:Integer `1`
         h1 `Welcome to the Chess guide`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	#content:String =`~ return "[[=home.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
 Starters{
         ->(extends) General
         ->(child) IntroductionOfTheChessPieces
-        ->(child) Rules
-        ->(child) Notation
-        ->(child) Patterns
-        ->(child) Openings
-        ->(child) Tactics
+        ->(child) FormalGameRules
+        ->(child) CheckmatePatterns
+        ->(child) FirstAdvice
+
         #[order]:Integer `2`
-	title `Starters`
-        h1 `Tutorial for beginners`
+	title `Elementary`
+        h1 `Tutorial for beginners: Introduction of the Game`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
@@ -44,49 +44,185 @@ IntroductionOfTheChessPieces{
         ->(child) King
 
         #[order]:Integer `1`
-        title `Introduction to the Chess Pieces`
+        title `Chess Pieces Introduction`
                 h1 `Introduction to the Chess Pieces`
         	#content:String =`~ return "[[=placeholder.xhtml]]";`
         	#resource =`~ return "[[=layout.xhtml]]";`
 
 }
+Pawn{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
 
-Notation{
+        #[order]:Integer `1`
+                title `Pawn`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=pawn.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+Knight{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `2`
+                title `Knight`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=knight.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+Bishop{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `3`
+                title `Bishop`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=bishop.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+Rook{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `4`
+                title `Rook`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=rook.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+Queen{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `5`
+                title `Queen`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=queen.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+King{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `6`
+                title `King`
+                        h1 `Introduction to the Chess Pieces`
+                	#content:String =`~ return "[[=king.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+
+
+FormalGameRules{
         ->(extends) General
         ->(extends) Starters
         #[order]:Integer `2`
-	title `Algebraic notation`
+	title `General Game Rules`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
-Patterns{
+CheckmatePatterns{
         ->(extends) General
         ->(extends) Starters
         #[order]:Integer `3`
 	title `Simple patterns`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
 	
 }
-Openings{
+FirstAdvice{
         ->(extends) General
         ->(extends) Starters
-        #[order]:Integer `4`
-	title `Rules of the opening`
+        ->(child) OpeningWise
+        ->(child) MakingWiseCaptures
+
+        #[order]:Integer `3`
+	title `Simple patterns`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+
 }
-Tactics{
-        ->(extends) Starters
+OpeningWise{
         ->(extends) General
-        #[order]:Integer `5`
-	title `Making wise captures`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        ->(extends) Starters
+        ->(extends) FirstAdvice
+
+        #[order]:Integer `1`
+        	title `First Advice`
+                h1 `Opening Wise`
+        	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
+MakingWiseCaptures{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends) FirstAdvice
+
+        #[order]:Integer `2`
+        	title `Making Wise Captures`
+                h1 `Making Wise Captures`
+        	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+Optional{
+        ->(extends)General
+        ->(child)Notation
+        ->(child)Quotes
+        ->(child)PawnGame
+
+        #[order]:Integer `3`
+                	title `Optional Material`
+                        h1 `Making Wise Captures`
+                	#content:String =`~ return "[[=placeholder.xhtml]]";`
+                	#resource =`~ return "[[=layout.xhtml]]";`
+
+        }
+Notation{
+        ->(extends)General
+        ->(extends)Optional
+
+        #[order]:Integer `1`
+                	title `Notation Styles`
+                        h1 `Making Wise Captures`
+                	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+Quotes{
+        ->(extends)General
+        ->(extends)Optional
+
+        #[order]:Integer `2`
+                	title `Quotes`
+                        h1 `Making Wise Captures`
+                	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+PawnGame{
+        ->(extends)General
+        ->(extends)Optional
+
+        #[order]:Integer `3`
+                	title `Pawn Game`
+                        h1 `Making Wise Captures`
+                	#content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+
+
 Professional{
         ->(extends) General
         ->(child) Tactics2
@@ -96,7 +232,7 @@ Professional{
         ->(child) Tips
         ->(child) Improve
         ->(child) Repertoire
-        #[order]:Integer `3`
+        #[order]:Integer `4`
 	title `Professional`
         h1 `Tutorial for advanced players`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
