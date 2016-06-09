@@ -8,7 +8,13 @@ General{
         #suitability:Boolean = `true`
         #visited:Integer event +`if (${#suitability}) { ${#visited}++;}`
 }
-
+KnowledgeQuiz {
+    ->(extends) General
+    title `Knowledge Quiz`
+    h1 `Test your knowledge`
+    #content:String = `~ return "[[=placeholder.xhtml]]";`
+    #resource = `~ return "[[=layout.xhtml]]";`
+}
 Chess{
 	->(extends) General
 	title `Home`
@@ -89,8 +95,8 @@ Professional{
         #[order]:Integer `3`
 	title `Professional`
         h1 `Tutorial for advanced players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-        #prof =`~ return "[[=xml/prof.xhtml]]";`
+	#content:String =`~ return "[[=xml/prof/professional.xhtml]]";`
+        #prof =`~ return "[[=xml/prof/prof.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
@@ -116,8 +122,8 @@ Forks{
         ->(extends) General
         #[order]:Integer `1`
 	title `Forks`
-        h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Forks`
+	#content:String =`~ return "[[=xml/prof/forks.xhtml]]";`
 	
 }
 Pinning{
