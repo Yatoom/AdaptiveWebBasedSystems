@@ -257,7 +257,7 @@ Tactics2{
         #[order]:Integer `1`
         title `Tactics`
         h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        #content:String =`~ return "[[=xml/prof/tactics.xhtml]]";`
 
 }
 Forks{
@@ -274,8 +274,8 @@ Pinning{
         ->(extends) General
         #[order]:Integer `2`
         title `Pinning`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Pinning`
+        #content:String =`~ return "[[=xml/prof/pinning.xhtml]]";`
 
 }
 Skewers{
@@ -283,8 +283,8 @@ Skewers{
         ->(extends) General
         #[order]:Integer `3`
         title `Skewers`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Skewers`
+        #content:String =`~ return "[[=xml/prof/skewers.xhtml]]";`
 
 }
 Uncovering{
@@ -292,8 +292,8 @@ Uncovering{
         ->(extends) General
         #[order]:Integer `4`
         title `Uncovering`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Discovered Attack and Discovered Check`
+        #content:String =`~ return "[[=xml/prof/uncover.xhtml]]";`
 
 }
 Remdef{
