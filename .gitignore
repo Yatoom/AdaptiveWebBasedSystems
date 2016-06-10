@@ -2,3 +2,9 @@ nb-configuration.xml
 target/*
 src/main/webapp/Milkyway_admin/
 src/main/webapp/thesis/
+MarcTest_Marc/
+Milkyway_admin/
+thesis/
+src/css/bundle.css
+src/js/bundle.js
+META-INF/context.xml
