@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main xmlns:gale="http://gale.tue.nl/adaptation">
+    <div style="width: 400px;
+         max-width: 90%;
+         float: right;
+         margin: 10px;
+         text-align: justify;
+         border: 1px solid;
+         padding: 10px;">
+        <h3>Warning</h3>
+        <p>
+            The page you are currently viewing might be difficult to follow with your 
+            current chess knowledge. Please try to follow our 
+            <gale:a>course for beginners<gale:attr-variable name="href" expr="&quot;Starters&quot;"/></gale:a>
+            first.
+        </p>
+        <p>
+            In case you are wondering why we are telling you this and think your chess 
+            play is quite professional, then please let us check that by making the 
+            <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
+        </p>
+    </div>
+    <h1><gale:variable expr="${?h1}"/></h1>
+    <gale:if expr="${->(child)}.length &gt; 0">
+        <gale:then>
+            <hr />
+            <p>
+                In this section the following subjects will be covered: <br />
+                <gale:for var="sub" expr="${->(child)}" sort="${#order}">
+                    <gale:a style="font-size: 0.8em;"><gale:variable expr="${%sub?title}"/><gale:attr-variable name="href" expr="&quot;%sub&quot;"/></gale:a><br />
+                </gale:for>
+            </p>
+            <hr />
+        </gale:then>
+    </gale:if>
+
+</main>

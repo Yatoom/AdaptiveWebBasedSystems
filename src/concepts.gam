@@ -10,7 +10,13 @@ General{
         #visited:Integer event +`if (${#suitability}) { ${#visited}++;}`
         #resource =`~ return "[[=layout.xhtml]]";`
 }
-
+KnowledgeQuiz {
+        ->(extends) General
+        title `Knowledge Quiz`
+        h1 `Test your knowledge`
+        #content:String = `~ return "[[=placeholder.xhtml]]";`
+        #resource = `~ return "[[=layout.xhtml]]";`
+}
 Chess{
         ->(extends) General
         title `Home`
@@ -233,8 +239,8 @@ Professional{
         #[order]:Integer `4`
         title `Professional`
         h1 `Tutorial for advanced players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-        #prof =`~ return "[[=xml/prof.xhtml]]";`
+	#content:String =`~ return "[[=xml/prof/professional.xhtml]]";`
+        #prof =`~ return "[[=xml/prof/prof.xhtml]]";`
 
 }
 Tactics2{
@@ -251,7 +257,7 @@ Tactics2{
         #[order]:Integer `1`
         title `Tactics`
         h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        #content:String =`~ return "[[=xml/prof/tactics.xhtml]]";`
 
 }
 Forks{
@@ -259,8 +265,8 @@ Forks{
         ->(extends) General
         #[order]:Integer `1`
         title `Forks`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Forks`
+	#content:String =`~ return "[[=xml/prof/forks.xhtml]]";`
 
 }
 Pinning{
@@ -268,8 +274,8 @@ Pinning{
         ->(extends) General
         #[order]:Integer `2`
         title `Pinning`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Pinning`
+        #content:String =`~ return "[[=xml/prof/pinning.xhtml]]";`
 
 }
 Skewers{
@@ -277,8 +283,8 @@ Skewers{
         ->(extends) General
         #[order]:Integer `3`
         title `Skewers`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Skewers`
+        #content:String =`~ return "[[=xml/prof/skewers.xhtml]]";`
 
 }
 Uncovering{
@@ -286,8 +292,8 @@ Uncovering{
         ->(extends) General
         #[order]:Integer `4`
         title `Uncovering`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Discovered Attack and Discovered Check`
+        #content:String =`~ return "[[=xml/prof/uncover.xhtml]]";`
 
 }
 Remdef{
