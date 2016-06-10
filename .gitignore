@@ -4,6 +4,6 @@ MarcTest_Marc/
 Milkyway_admin/
 META-INF/
 thesis/
+target/
 src/css/bundle.css
 src/js/bundle.js
-target/

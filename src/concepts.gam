@@ -1,12 +1,14 @@
 $options { default.properties "event;strict"} 
- 
+
 General{
         ->(child) Chess
         ->(child) Starters
+        ->(child) Optional
         ->(child) Professional
         #header:String `img/header.png`
         #suitability:Boolean = `true`
         #visited:Integer event +`if (${#suitability}) { ${#visited}++;}`
+        #resource =`~ return "[[=layout.xhtml]]";`
 }
 KnowledgeQuiz {
         ->(extends) General
@@ -16,73 +18,215 @@ KnowledgeQuiz {
         #resource = `~ return "[[=layout.xhtml]]";`
 }
 Chess{
-	->(extends) General
-	title `Home`
+        ->(extends) General
+        title `Home`
         #[order]:Integer `1`
         h1 `Welcome to the Chess guide`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
-	
+        #content:String =`~ return "[[=xml/home.xhtml]]";`
 }
+
 Starters{
         ->(extends) General
-        ->(child) Rules
+        ->(child) IntroductionOfTheChessPieces
+        ->(child) Check
+        ->(child) FormalGameRules
+        ->(child) CheckmatePatterns
+        ->(child) FirstAdvice
         ->(child) Notation
-        ->(child) Patterns
-        ->(child) Openings
-        ->(child) Tactics
+
         #[order]:Integer `2`
-	title `Starters`
-        h1 `Tutorial for beginners`
+	title `Elementary`
+        h1 `Tutorial for beginners: Introduction of the Game`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
-Rules{
+
+IntroductionOfTheChessPieces{
         ->(extends) General
         ->(extends) Starters
+        ->(child) Pawn
+        ->(child) Knight
+        ->(child) Bishop
+        ->(child) Rook
+        ->(child) Queen
+        ->(child) King
+
         #[order]:Integer `1`
-	title `Rules of chess`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=xml/pawn_text.xhtml]]";`
-	
+        title `Chess Pieces Introduction`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
-Notation{
+Pawn{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `1`
+        title `Pawn`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/pawn.xhtml]]";`
+
+}
+Knight{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `2`
+        title `Knight`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/knight.xhtml]]";`
+
+}
+
+
+Bishop{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `3`
+        title `Bishop`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/bishop.xhtml]]";`
+
+}
+Rook{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `4`
+        title `Rook`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/rook.xhtml]]";`
+
+}
+Queen{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `5`
+        title `Queen`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/queen.xhtml]]";`
+
+}
+King{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends)IntroductionOfTheChessPieces
+
+        #[order]:Integer `6`
+        title `King`
+        h1 `Introduction to the Chess Pieces`
+        #content:String =`~ return "[[=xml/start/king.xhtml]]";`
+
+}
+
+Check{
         ->(extends) General
         ->(extends) Starters
         #[order]:Integer `2`
-	title `Algebraic notation`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        title `Check`
+        h1 `Check`
+        #content:String =`~ return "[[=xml/start/check.xhtml]]";`
 }
-Patterns{
-        ->(extends) General
-        ->(extends) Starters
-        #[order]:Integer `3`
-	title `Simple patterns`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
-}
-Openings{
+
+FormalGameRules{
         ->(extends) General
         ->(extends) Starters
         #[order]:Integer `4`
-	title `Rules of the opening`
+        title `General Game Rules`
         h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=xml/start/rules.xhtml]]";`
+
 }
-Tactics{
-        ->(extends) Starters
+CheckmatePatterns{
         ->(extends) General
-        #[order]:Integer `5`
-	title `Making wise captures`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        ->(extends) Starters
+        #[order]:Integer `3`
+        title `Simple patterns`
+        h1 `Checkmating patterns`
+        #content:String =`~ return "[[=xml/start/matingpatterns.xhtml]]";`
+
+
 }
+FirstAdvice{
+        ->(extends) General
+        ->(extends) Starters
+        ->(child) OpeningWise
+        ->(child) MakingWiseCaptures
+
+        #[order]:Integer `5`
+        title `First Guidance`
+        h1 `Tutorial for beginners`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+OpeningWise{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends) FirstAdvice
+
+        #[order]:Integer `1`
+        title `First Advice`
+        h1 `Opening Wise`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
+}
+
+
+MakingWiseCaptures{
+        ->(extends) General
+        ->(extends) Starters
+        ->(extends) FirstAdvice
+
+        #[order]:Integer `2`
+        title `Making Wise Captures`
+        h1 `Making Wise Captures`
+        #content:String =`~ return "[[=xml/start/wisecaptures.xhtml]]";`
+
+}
+Notation{
+        ->(extends)General
+        ->(extends)Starters
+
+        #[order]:Integer `6`
+        title `Notation of Chess Moves`
+        h1 `Making Wise Captures`
+        #content:String =`~ return "[[=xml/start/notation.xhtml]]";`
+}
+
+Optional{
+        ->(extends)General
+        ->(child)Quotes
+        ->(child)PawnGame
+        #[order]:Integer `3`
+        title `Optional Material`
+        h1 `Making Wise Captures`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+}
+
+Quotes{
+        ->(extends)General
+        ->(extends)Optional
+        #[order]:Integer `2`
+        title `Quotes`
+        h1 `Making Wise Captures`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+}
+PawnGame{
+        ->(extends)General
+        ->(extends)Optional
+        #[order]:Integer `3`
+        title `Pawn Game`
+        h1 `Making Wise Captures`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+}
+
 Professional{
         ->(extends) General
         ->(child) Tactics2
@@ -92,13 +236,12 @@ Professional{
         ->(child) Tips
         ->(child) Improve
         ->(child) Repertoire
-        #[order]:Integer `3`
-	title `Professional`
+        #[order]:Integer `4`
+        title `Professional`
         h1 `Tutorial for advanced players`
 	#content:String =`~ return "[[=xml/prof/professional.xhtml]]";`
         #prof =`~ return "[[=xml/prof/prof.xhtml]]";`
-	#resource =`~ return "[[=layout.xhtml]]";`
-	
+
 }
 Tactics2{
         ->(extends) Professional
@@ -112,82 +255,82 @@ Tactics2{
         ->(child) Deflection
         ->(child) Decoying
         #[order]:Integer `1`
-	title `Tactics`
+        title `Tactics`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Forks{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
-	title `Forks`
+        title `Forks`
         h1 `Forks`
 	#content:String =`~ return "[[=xml/prof/forks.xhtml]]";`
-	
+
 }
 Pinning{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
-	title `Pinning`
+        title `Pinning`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Skewers{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
-	title `Skewers`
+        title `Skewers`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Uncovering{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
-	title `Uncovering`
+        title `Uncovering`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Remdef{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `5`
-	title `Remove the defender`
+        title `Remove the defender`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Overloading{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
-	title `Overloading`
+        title `Overloading`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Deflection{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `7`
-	title `Deflection`
+        title `Deflection`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Decoying{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `8`
-	title `Decoying`
+        title `Decoying`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Openings2{
         ->(extends) Professional
@@ -203,117 +346,117 @@ Openings2{
         ->(child) OpeningSurvey9
         ->(child) OpeningSurvey10
         #[order]:Integer `2`
-	title `Some openings`
+        title `Some openings`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey1{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
-	title `Albin Counter-Gambit`
+        title `Albin Counter-Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey2{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
-	title `King's Indian Defence`
+        title `King's Indian Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey3{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `7`
-	title `Nimzo-Indian Defence`
+        title `Nimzo-Indian Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey4{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
-	title `Benko Gambit`
+        title `Benko Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey5{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `8`
-	title `Queen's Gambit`
+        title `Queen's Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey6{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `5`
-	title `Gruenfeld Defence`
+        title `Gruenfeld Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
 }
 OpeningSurvey7{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `9`
-	title `Sicilian Defence`
+        title `Sicilian Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey8{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
-	title `Danish Gambit`
+        title `Danish Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey9{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
-	title `Dutch Defence`
+        title `Dutch Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 OpeningSurvey10{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `10`
-	title `Vienna`
+        title `Vienna`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Quiz{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
-	title `Best move quiz`
+        title `Best move quiz`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Clock{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
-	title `The chess clock`
+        title `The chess clock`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Tips{
         ->(extends) Professional
@@ -321,37 +464,37 @@ Tips{
         ->(child) WinningTips
         ->(child) ImprovingTips
         #[order]:Integer `5`
-	title `Tips`
+        title `Tips`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 WinningTips{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
-	title `Winning tips`
+        title `Winning tips`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 ImprovingTips{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
-	title `Improving tips`
+        title `Improving tips`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Improve{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `6`
-	title `Improve your play`
+        title `Improve your play`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire{
         ->(extends) Professional
@@ -362,53 +505,53 @@ Repertoire{
         ->(child) Repertoire4
         ->(child) Repertoire5
         #[order]:Integer `7`
-	title `Opening repertoire`
+        title `Opening repertoire`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire1{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `1`
-	title `Benko Gambit`
+        title `Benko Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire2{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `2`
-	title `Gruenfeld defence`
+        title `Gruenfeld defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire3{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `3`
-	title `King's Indian Defence`
+        title `King's Indian Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire4{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `5`
-	title `Queen's Gambit`
+        title `Queen's Gambit`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
 Repertoire5{
         ->(extends) Professional
         ->(extends) General
         #[order]:Integer `4`
-	title `Nimzo-Indian Defence`
+        title `Nimzo-Indian Defence`
         h1 `Tutorial for professional players`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
-	
+        #content:String =`~ return "[[=placeholder.xhtml]]";`
+
 }
