@@ -9,11 +9,11 @@ General{
         #visited:Integer event +`if (${#suitability}) { ${#visited}++;}`
 }
 KnowledgeQuiz {
-    ->(extends) General
-    title `Knowledge Quiz`
-    h1 `Test your knowledge`
-    #content:String = `~ return "[[=placeholder.xhtml]]";`
-    #resource = `~ return "[[=layout.xhtml]]";`
+        ->(extends) General
+        title `Knowledge Quiz`
+        h1 `Test your knowledge`
+        #content:String = `~ return "[[=placeholder.xhtml]]";`
+        #resource = `~ return "[[=layout.xhtml]]";`
 }
 Chess{
 	->(extends) General
