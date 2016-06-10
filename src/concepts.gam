@@ -22,9 +22,11 @@ Chess{
 Starters{
         ->(extends) General
         ->(child) IntroductionOfTheChessPieces
+        ->(child) Check
         ->(child) FormalGameRules
         ->(child) CheckmatePatterns
         ->(child) FirstAdvice
+        ->(child) Notation
 
         #[order]:Integer `2`
 	title `Elementary`
@@ -123,14 +125,26 @@ King{
 
         }
 
+Check{
+        ->(extends) General
+        ->(extends) Starters
+        #[order]:Integer `2`
+        	title `Check`
+                h1 `Check`
+        	#content:String =`~ return "[[=check.xhtml]]";`
+        	#resource =`~ return "[[=layout.xhtml]]";
+        	}
+
+
+
 
 FormalGameRules{
         ->(extends) General
         ->(extends) Starters
-        #[order]:Integer `2`
+        #[order]:Integer `4`
 	title `General Game Rules`
         h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+	#content:String =`~ return "[[=rules.xhtml]]";`
 	#resource =`~ return "[[=layout.xhtml]]";`
 	
 }
@@ -139,8 +153,8 @@ CheckmatePatterns{
         ->(extends) Starters
         #[order]:Integer `3`
 	title `Simple patterns`
-        h1 `Tutorial for beginners`
-	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Checkmating patterns`
+	#content:String =`~ return "[[=matingpatterns.xhtml]]";`
 
 	
 }
@@ -150,8 +164,8 @@ FirstAdvice{
         ->(child) OpeningWise
         ->(child) MakingWiseCaptures
 
-        #[order]:Integer `3`
-	title `Simple patterns`
+        #[order]:Integer `5`
+	title `First Guidance`
         h1 `Tutorial for beginners`
 	#content:String =`~ return "[[=placeholder.xhtml]]";`
 
@@ -175,12 +189,21 @@ MakingWiseCaptures{
         #[order]:Integer `2`
         	title `Making Wise Captures`
                 h1 `Making Wise Captures`
-        	#content:String =`~ return "[[=placeholder.xhtml]]";`
+        	#content:String =`~ return "[[=wisecaptures.xhtml]]";`
+
+}
+Notation{
+        ->(extends)General
+        ->(extends)Starters
+
+        #[order]:Integer `6`
+                	title `Notation of Chess Moves`
+                        h1 `Making Wise Captures`
+                	#content:String =`~ return "[[=notation.xhtml]]";`
 
 }
 Optional{
         ->(extends)General
-        ->(child)Notation
         ->(child)Quotes
         ->(child)PawnGame
 
@@ -191,16 +214,7 @@ Optional{
                 	#resource =`~ return "[[=layout.xhtml]]";`
 
         }
-Notation{
-        ->(extends)General
-        ->(extends)Optional
 
-        #[order]:Integer `1`
-                	title `Notation Styles`
-                        h1 `Making Wise Captures`
-                	#content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
 Quotes{
         ->(extends)General
         ->(extends)Optional
