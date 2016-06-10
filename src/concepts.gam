@@ -59,7 +59,7 @@ Pawn{
         #[order]:Integer `1`
         title `Pawn`
         h1 `Introduction to the Chess Pieces`
-        #content:String =`~ return "[[=pawn.xhtml]]";`
+        #content:String =`~ return "[[=xml/start/pawn.xhtml]]";`
 
 }
 Knight{
@@ -70,7 +70,7 @@ Knight{
         #[order]:Integer `2`
         title `Knight`
         h1 `Introduction to the Chess Pieces`
-        #content:String =`~ return "[[=knight.xhtml]]";`
+        #content:String =`~ return "[[=xml/start/knight.xhtml]]";`
 
 }
 
