@@ -20,7 +20,7 @@
             <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
         </p>
     </div>
-    <h1><gale:variable expr="${?h1}"/></h1>
+    <h1><gale:variable expr="${?h1}" /></h1>
     <gale:if expr="${->(child)}.length &gt; 0">
         <gale:then>
             <hr />
@@ -33,5 +33,5 @@
             <hr />
         </gale:then>
     </gale:if>
-
+    <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
 </main>
