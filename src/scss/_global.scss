@@ -21,3 +21,28 @@ a.bad {
 a.neutral {
     color: black !important;
 }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.navigation {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.content {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  width: 100%;
+}
+
+.footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
