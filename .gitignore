@@ -7,3 +7,4 @@ thesis/
 target/
 src/css/bundle.css
 src/js/bundle.js
+.netbeans.xml
