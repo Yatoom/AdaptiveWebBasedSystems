@@ -5,7 +5,6 @@ General{
         ->(child) Starters
         ->(child) Optional
         ->(child) Professional
-        #header:String `img/header.png`
         #suitability:Boolean = `true`
         #visited:Integer event +`if (${#suitability}) { ${#visited}++;}`
         #resource =`~ return "[[=layout.xhtml]]";`
@@ -240,12 +239,11 @@ Professional{
         title `Professional`
         h1 `Tutorial for advanced players`
 	#content:String =`~ return "[[=xml/prof/professional.xhtml]]";`
-        #prof =`~ return "[[=xml/prof/prof.xhtml]]";`
+        #prof:String =`~ return "[[=xml/prof/prof.xhtml]]";`
 
 }
 Tactics2{
         ->(extends) Professional
-        ->(extends) General
         ->(child) Forks
         ->(child) Pinning
         ->(child) Skewers
@@ -262,7 +260,6 @@ Tactics2{
 }
 Forks{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `1`
         title `Forks`
         h1 `Forks`
@@ -271,7 +268,6 @@ Forks{
 }
 Pinning{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `2`
         title `Pinning`
         h1 `Pinning`
@@ -280,7 +276,6 @@ Pinning{
 }
 Skewers{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `3`
         title `Skewers`
         h1 `Skewers`
@@ -289,7 +284,6 @@ Skewers{
 }
 Uncovering{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `4`
         title `Uncovering`
         h1 `Discovered Attack and Discovered Check`
@@ -298,7 +292,6 @@ Uncovering{
 }
 Remdef{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `5`
         title `Remove the defender`
         h1 `Tutorial for professional players`
@@ -307,7 +300,6 @@ Remdef{
 }
 Overloading{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `6`
         title `Overloading`
         h1 `Tutorial for professional players`
@@ -316,7 +308,6 @@ Overloading{
 }
 Deflection{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `7`
         title `Deflection`
         h1 `Tutorial for professional players`
@@ -325,7 +316,6 @@ Deflection{
 }
 Decoying{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `8`
         title `Decoying`
         h1 `Tutorial for professional players`
@@ -334,7 +324,6 @@ Decoying{
 }
 Openings2{
         ->(extends) Professional
-        ->(extends) General
         ->(child) OpeningSurvey1
         ->(child) OpeningSurvey2
         ->(child) OpeningSurvey3
@@ -353,7 +342,6 @@ Openings2{
 }
 OpeningSurvey1{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `1`
         title `Albin Counter-Gambit`
         h1 `Tutorial for professional players`
@@ -362,7 +350,6 @@ OpeningSurvey1{
 }
 OpeningSurvey2{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `6`
         title `King's Indian Defence`
         h1 `Tutorial for professional players`
@@ -371,7 +358,6 @@ OpeningSurvey2{
 }
 OpeningSurvey3{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `7`
         title `Nimzo-Indian Defence`
         h1 `Tutorial for professional players`
@@ -380,7 +366,6 @@ OpeningSurvey3{
 }
 OpeningSurvey4{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `2`
         title `Benko Gambit`
         h1 `Tutorial for professional players`
@@ -389,7 +374,6 @@ OpeningSurvey4{
 }
 OpeningSurvey5{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `8`
         title `Queen's Gambit`
         h1 `Tutorial for professional players`
@@ -398,7 +382,6 @@ OpeningSurvey5{
 }
 OpeningSurvey6{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `5`
         title `Gruenfeld Defence`
         h1 `Tutorial for professional players`
@@ -406,7 +389,6 @@ OpeningSurvey6{
 }
 OpeningSurvey7{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `9`
         title `Sicilian Defence`
         h1 `Tutorial for professional players`
@@ -415,7 +397,6 @@ OpeningSurvey7{
 }
 OpeningSurvey8{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `3`
         title `Danish Gambit`
         h1 `Tutorial for professional players`
@@ -424,7 +405,6 @@ OpeningSurvey8{
 }
 OpeningSurvey9{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `4`
         title `Dutch Defence`
         h1 `Tutorial for professional players`
@@ -433,7 +413,6 @@ OpeningSurvey9{
 }
 OpeningSurvey10{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `10`
         title `Vienna`
         h1 `Tutorial for professional players`
@@ -442,7 +421,6 @@ OpeningSurvey10{
 }
 Quiz{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `3`
         title `Best move quiz`
         h1 `Tutorial for professional players`
@@ -451,7 +429,6 @@ Quiz{
 }
 Clock{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `4`
         title `The chess clock`
         h1 `Tutorial for professional players`
@@ -460,7 +437,6 @@ Clock{
 }
 Tips{
         ->(extends) Professional
-        ->(extends) General
         ->(child) WinningTips
         ->(child) ImprovingTips
         #[order]:Integer `5`
@@ -471,7 +447,6 @@ Tips{
 }
 WinningTips{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `2`
         title `Winning tips`
         h1 `Tutorial for professional players`
@@ -480,7 +455,6 @@ WinningTips{
 }
 ImprovingTips{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `1`
         title `Improving tips`
         h1 `Tutorial for professional players`
@@ -489,7 +463,6 @@ ImprovingTips{
 }
 Improve{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `6`
         title `Improve your play`
         h1 `Tutorial for professional players`
@@ -498,7 +471,6 @@ Improve{
 }
 Repertoire{
         ->(extends) Professional
-        ->(extends) General
         ->(child) Repertoire1
         ->(child) Repertoire2
         ->(child) Repertoire3
@@ -512,7 +484,6 @@ Repertoire{
 }
 Repertoire1{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `1`
         title `Benko Gambit`
         h1 `Tutorial for professional players`
@@ -521,7 +492,6 @@ Repertoire1{
 }
 Repertoire2{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `2`
         title `Gruenfeld defence`
         h1 `Tutorial for professional players`
@@ -530,7 +500,6 @@ Repertoire2{
 }
 Repertoire3{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `3`
         title `King's Indian Defence`
         h1 `Tutorial for professional players`
@@ -539,7 +508,6 @@ Repertoire3{
 }
 Repertoire4{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `5`
         title `Queen's Gambit`
         h1 `Tutorial for professional players`
@@ -548,7 +516,6 @@ Repertoire4{
 }
 Repertoire5{
         ->(extends) Professional
-        ->(extends) General
         #[order]:Integer `4`
         title `Nimzo-Indian Defence`
         h1 `Tutorial for professional players`

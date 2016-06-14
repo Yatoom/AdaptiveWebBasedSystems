@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:gale="http://gale.tue.nl/adaptation">
     <head>	
-    <base><gale:attr-variable name="href" expr="${.}.getUriString()" /></base>
-    <meta name="viewport" content="width=device-width" />
-    
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
-    
-    <!-- Foundation -->
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.css"/>-->
-    <!--<script src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>-->
-    
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="vendor/css/font-awesome.min.css"></link>
-    
-    <!-- Jquery -->
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    
-    <!-- Bundled JS & CSS -->
-    <link rel="stylesheet" href="css/bundle.css"></link>
-    <script src="js/bundle.js"></script>
-</head>
-<body>
-  <gale:object data="templates/menu.xhtml" />
-  <!--<gale:object data="templates/header.xhtml" />-->
-  <div class='grid'>
-    <gale:for var="concept" expr="${->(extends)}">
-        <gale:if expr="${%concept} == ${Professional}">
-            <gale:then>
-                <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
-            </gale:then>
-            <gale:else>
-                <gale:if expr="${.} == ${Professional}">
-                    <gale:then>
-                        <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
-                    </gale:then>
-                </gale:if>
-            </gale:else>
-        </gale:if>
-    </gale:for>
-    <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
-  </div>
-  <gale:object data="templates/footer.xhtml" />
-</body>
+        <meta name="viewport" content="width=device-width" />
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="vendor/css/font-awesome.min.css"></link>
+
+        <!-- Jquery -->
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+        <!-- Bundled JS & CSS -->
+        <link rel="stylesheet" href="css/bundle.css"/>
+        <script src="js/bundle.js"></script>
+    </head>
+    <body xmlns:gale="http://gale.tue.nl/adaptation">
+        <gale:object data="templates/menu.xhtml"></gale:object>
+        <div class="grid">
+            <gale:if expr="${->(extends)[0]} == ${Professional} || ${.} == ${Professional}">
+                <gale:then>
+                    <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
+                </gale:then>
+                <gale:else>
+                    <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
+                </gale:else>
+            </gale:if>
+        </div>
+	<gale:object data="templates/footer.xhtml" />
+    </body>
 </html>
