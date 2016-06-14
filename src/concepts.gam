@@ -403,16 +403,16 @@ WinningTips{
         ->(extends) Professional
         #[order]:Integer `2`
         title `Winning tips`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Winning tips`
+        #content:String =`~ return "[[=xml/prof/winningtips.xhtml]]";`
 
 }
 ImprovingTips{
         ->(extends) Professional
         #[order]:Integer `1`
         title `Improving tips`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Improving tips`
+        #content:String =`~ return "[[=xml/prof/improvingtips.xhtml]]";`
 
 }
 Repertoire{

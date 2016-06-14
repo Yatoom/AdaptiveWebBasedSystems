@@ -1,8 +1,13 @@
 /* =============================================================================
   GLOBAL
 ============================================================================= */
-main a {
-    text-decoration: underline !important;
+main {
+    a {
+        text-decoration: underline !important;
+    }
+    p {
+        text-align: justify;
+    }
 }
 
 .highlight {
@@ -23,26 +28,26 @@ a.neutral {
 }
 
 .page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .navigation {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
 
 .content {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: auto;
-  width: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: 100%;
 }
 
 .footer {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
