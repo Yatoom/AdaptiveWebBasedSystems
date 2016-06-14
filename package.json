@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build-css": "node-sass --include-path scss src/scss/main.scss build/css/bundle.css",
-    "build-js":  "shx cat src/js/* > build/js/bundle.js",
+    "build-js": "shx cat src/js/* > build/js/bundle.js",
     "copy": "shx cp -r src/{img,*.xhtml,concepts.gam,xml,templates,vendor} build/",
     "build": "npm run build-css && npm run build-js && npm run copy",
-    "push": "sshpass -p '2IMW25_g3' rsync -r build as3_2016@wwwis.win.tue.nl:/home/as3_2016/public_html/ --progress"
+    "push": "sshpass -p '2IMW25_g3' rsync -r build as3_2016@wwwis.win.tue.nl:/home/as3_2016/public_html/ --progress",
+    "watch": "nodemon --watch src --ext js,xhtml,gam,scss --exec \"npm run build\""
   },
   "repository": {
     "type": "git",
