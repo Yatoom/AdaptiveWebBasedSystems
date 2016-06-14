@@ -63,7 +63,7 @@ Pawn{
 
         #[order]:Integer `1`
         title `Pawn`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The Pawn`
         #content:String =`~ return "[[=xml/start/pawn.xhtml]]";`
 
 }
@@ -74,7 +74,7 @@ Knight{
 
         #[order]:Integer `2`
         title `Knight`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The Knight`
         #content:String =`~ return "[[=xml/start/knight.xhtml]]";`
 
 }
@@ -87,7 +87,7 @@ Bishop{
 
         #[order]:Integer `3`
         title `Bishop`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The Bishop`
         #content:String =`~ return "[[=xml/start/bishop.xhtml]]";`
 
 }
@@ -98,7 +98,7 @@ Rook{
 
         #[order]:Integer `4`
         title `Rook`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The Rook`
         #content:String =`~ return "[[=xml/start/rook.xhtml]]";`
 
 }
@@ -109,7 +109,7 @@ Queen{
 
         #[order]:Integer `5`
         title `Queen`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The Queen`
         #content:String =`~ return "[[=xml/start/queen.xhtml]]";`
 
 }
@@ -120,7 +120,7 @@ King{
 
         #[order]:Integer `6`
         title `King`
-        h1 `Introduction to the Chess Pieces`
+        h1 `The King`
         #content:String =`~ return "[[=xml/start/king.xhtml]]";`
 
 }
@@ -129,8 +129,8 @@ Check{
         ->(extends) General
         ->(extends) Starters
         #[order]:Integer `2`
-        title `Check`
-        h1 `Check`
+        title `Game Endings and Check`
+        h1 `Game Ending: Check, Checkmate and Stalemate`
         #content:String =`~ return "[[=xml/start/check.xhtml]]";`
 }
 
@@ -139,7 +139,7 @@ FormalGameRules{
         ->(extends) Starters
         #[order]:Integer `4`
         title `General Game Rules`
-        h1 `Tutorial for beginners`
+        h1 `Formal Game Rules of Chess`
         #content:String =`~ return "[[=xml/start/rules.xhtml]]";`
 
 }
@@ -148,7 +148,7 @@ CheckmatePatterns{
         ->(extends) Starters
         #[order]:Integer `3`
         title `Simple patterns`
-        h1 `Checkmating patterns`
+        h1 `Checkmating patterns: examples of checkmate positions`
         #content:String =`~ return "[[=xml/start/matingpatterns.xhtml]]";`
 
 
@@ -161,7 +161,7 @@ FirstAdvice{
 
         #[order]:Integer `5`
         title `First Guidance`
-        h1 `Tutorial for beginners`
+        h1 `First Guidance and Advice for Playing Chess`
         #content:String =`~ return "[[=placeholder.xhtml]]";`
 
 }
@@ -173,7 +173,7 @@ OpeningWise{
         #[order]:Integer `1`
         title `First Advice`
         h1 `Opening Wise`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        #content:String =`~ return "[[=openingwise.xhtml]]";`
 
 }
 
@@ -206,7 +206,7 @@ Optional{
         #[order]:Integer `3`
         title `Optional Material`
         h1 `Making Wise Captures`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        #content:String =`~ return "[[=quotes.xhtml]]";`
 }
 
 Quotes{
@@ -214,16 +214,16 @@ Quotes{
         ->(extends)Optional
         #[order]:Integer `2`
         title `Quotes`
-        h1 `Making Wise Captures`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Quotes of Famous Chess Players`
+        #content:String =`~ return "[[=quotes.xhtml]]";`
 }
 PawnGame{
         ->(extends)General
         ->(extends)Optional
         #[order]:Integer `3`
         title `Pawn Game`
-        h1 `Making Wise Captures`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `The Pawn Game`
+        #content:String =`~ return "[[=pawngame.xhtml]]";`
 }
 
 Professional{
