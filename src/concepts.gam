@@ -96,6 +96,10 @@ Rook{
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
+
+        #[rook_read]:Integer=0
+        event `${#rook_read}=1;`
+
         #[order]:Integer `4`
         title `Rook`
         h1 `The Rook`
