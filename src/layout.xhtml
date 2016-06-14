@@ -17,8 +17,9 @@
         <script src="js/bundle.js"></script>
     </head>
     <body xmlns:gale="http://gale.tue.nl/adaptation">
+      <div class="page">
         <gale:object data="templates/menu.xhtml"></gale:object>
-        <div class="grid">
+        <div class="grid content">
             <gale:if expr="${->(extends)[0]} == ${Professional} || ${.} == ${Professional}">
                 <gale:then>
                     <gale:object><gale:attr-variable name="data" expr="${#prof}" /></gale:object>
@@ -28,6 +29,7 @@
                 </gale:else>
             </gale:if>
         </div>
-	<gale:object data="templates/footer.xhtml" />
+	     <gale:object data="templates/footer.xhtml" />
+     </div>
     </body>
 </html>
