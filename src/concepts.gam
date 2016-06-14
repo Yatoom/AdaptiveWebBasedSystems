@@ -233,7 +233,6 @@ Professional{
         ->(child) Quiz
         ->(child) Clock
         ->(child) Tips
-        ->(child) Improve
         ->(child) Repertoire
         #[order]:Integer `4`
         title `Professional`
@@ -293,57 +292,44 @@ Uncovering{
 Remdef{
         ->(extends) Professional
         #[order]:Integer `5`
-        title `Remove the defender`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        title `Remove defender`
+        h1 `Remove the defender`
+        #content:String =`~ return "[[=xml/prof/remdef.xhtml]]";`
 
 }
 Overloading{
         ->(extends) Professional
         #[order]:Integer `6`
         title `Overloading`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Overloading`
+        #content:String =`~ return "[[=xml/prof/overload.xhtml]]";`
 
 }
 Deflection{
         ->(extends) Professional
         #[order]:Integer `7`
         title `Deflection`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Deflection`
+        #content:String =`~ return "[[=xml/prof/deflection.xhtml]]";`
 
 }
 Decoying{
         ->(extends) Professional
         #[order]:Integer `8`
         title `Decoying`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Decoying`
+        #content:String =`~ return "[[=xml/prof/decoy.xhtml]]";`
 
 }
 Openings2{
         ->(extends) Professional
-        ->(child) OpeningSurvey1
         ->(child) OpeningSurvey2
         ->(child) OpeningSurvey3
         ->(child) OpeningSurvey4
         ->(child) OpeningSurvey5
         ->(child) OpeningSurvey6
-        ->(child) OpeningSurvey7
-        ->(child) OpeningSurvey8
-        ->(child) OpeningSurvey9
-        ->(child) OpeningSurvey10
         #[order]:Integer `2`
         title `Some openings`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
-OpeningSurvey1{
-        ->(extends) Professional
-        #[order]:Integer `1`
-        title `Albin Counter-Gambit`
         h1 `Tutorial for professional players`
         #content:String =`~ return "[[=placeholder.xhtml]]";`
 
@@ -387,38 +373,6 @@ OpeningSurvey6{
         h1 `Tutorial for professional players`
         #content:String =`~ return "[[=placeholder.xhtml]]";`
 }
-OpeningSurvey7{
-        ->(extends) Professional
-        #[order]:Integer `9`
-        title `Sicilian Defence`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
-OpeningSurvey8{
-        ->(extends) Professional
-        #[order]:Integer `3`
-        title `Danish Gambit`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
-OpeningSurvey9{
-        ->(extends) Professional
-        #[order]:Integer `4`
-        title `Dutch Defence`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
-OpeningSurvey10{
-        ->(extends) Professional
-        #[order]:Integer `10`
-        title `Vienna`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
 Quiz{
         ->(extends) Professional
         #[order]:Integer `3`
@@ -431,8 +385,8 @@ Clock{
         ->(extends) Professional
         #[order]:Integer `4`
         title `The chess clock`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
+        h1 `Use of the chess clock`
+        #content:String =`~ return "[[=xml/prof/clock.xhtml]]";`
 
 }
 Tips{
@@ -457,14 +411,6 @@ ImprovingTips{
         ->(extends) Professional
         #[order]:Integer `1`
         title `Improving tips`
-        h1 `Tutorial for professional players`
-        #content:String =`~ return "[[=placeholder.xhtml]]";`
-
-}
-Improve{
-        ->(extends) Professional
-        #[order]:Integer `6`
-        title `Improve your play`
         h1 `Tutorial for professional players`
         #content:String =`~ return "[[=placeholder.xhtml]]";`
 

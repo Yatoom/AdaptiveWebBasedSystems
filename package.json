@@ -32,7 +32,6 @@
     "shx": "^0.1.2"
   },
   "dependencies": {
-    "font-awesome": "^4.6.3",
-    "fontawesome": "file:node_modules/fontawesome"
+    "font-awesome": "^4.6.3"
   }
 }
