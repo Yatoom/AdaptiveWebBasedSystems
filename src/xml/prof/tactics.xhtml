@@ -2,9 +2,18 @@
 <div xmlns:gale="http://gale.tue.nl/adaptation">
     <gale:text tag="default" type="creole">
         <p>
-            There are quite some tactics that can be useful while playing chess. The 
-            table below mentions them all briefly. Read all sections to become 
-            a tactical wizard. &lt;-make this adaptive
+            <gale:if expr="${#visitedAllChilds}">
+                <gale:then>
+                    Good job! You have become a tactical wizard :-) In case you 
+                    want a quick recap of the different tactics, you can have 
+                    a look at the table below.
+                </gale:then>
+                <gale:else>
+                    There are quite some tactics that can be useful while playing chess. The 
+                    table below mentions them all briefly. Read all sections to become 
+                    a tactical wizard.
+                </gale:else>
+            </gale:if>
         </p>
         <table>
             <tr>

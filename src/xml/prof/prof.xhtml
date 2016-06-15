@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main xmlns:gale="http://gale.tue.nl/adaptation">
+    <gale:if expr="!${#suitability}"><gale:then>
     <div style="width: 400px;
          max-width: 90%;
          float: right;
@@ -20,8 +21,9 @@
             <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
         </p>
     </div>
+        </gale:then>
+        </gale:if>
     <h1><gale:variable expr="${?h1}" /></h1>
-    <gale:variable expr="${#visited}" />
     <gale:if expr="${->(child)}.length &gt; 0">
         <gale:then>
             <hr />

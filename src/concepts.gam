@@ -8,6 +8,19 @@ General{
         #suitability:Boolean = 'true'
         #visited:Integer event +'if (${#suitability}) { ${#visited}++;}' 
         #resource ='~ return "[[=layout.xhtml]]";'
+        #visitedChilds:Integer = '0'
+        event + '
+            if (${#visited} == 1) { 
+                ${<-(child)#visitedChilds}++;
+            }
+        '
+        #visitedAllChilds:Boolean event + '
+            if (${#visitedChilds} == ${->(child)}.length) {
+                ${#visitedAllChilds} = true; 
+            } else {
+                ${#visitedAllChilds} = false;
+            }
+        '
 }
 KnowledgeQuiz {
         ->(extends) General
@@ -41,7 +54,6 @@ Starters{
 }
 
 IntroductionOfTheChessPieces{
-        ->(extends) General
         ->(extends) Starters
         ->(child) Pawn
         ->(child) Knight
@@ -57,7 +69,6 @@ IntroductionOfTheChessPieces{
 
 }
 Pawn{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -68,7 +79,6 @@ Pawn{
 
 }
 Knight{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -81,7 +91,6 @@ Knight{
 
 
 Bishop{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -92,7 +101,6 @@ Bishop{
 
 }
 Rook{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -103,7 +111,6 @@ Rook{
 
 }
 Queen{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -114,7 +121,6 @@ Queen{
 
 }
 King{
-        ->(extends) General
         ->(extends) Starters
         ->(extends)IntroductionOfTheChessPieces
 
@@ -126,7 +132,6 @@ King{
 }
 
 Check{
-        ->(extends) General
         ->(extends) Starters
         #[order]:Integer = '2'
         title 'Game Endings and Check'
@@ -135,7 +140,6 @@ Check{
 }
 
 FormalGameRules{
-        ->(extends) General
         ->(extends) Starters
         #[order]:Integer = '4'
         title 'General Game Rules'
@@ -144,7 +148,6 @@ FormalGameRules{
 
 }
 CheckmatePatterns{
-        ->(extends) General
         ->(extends) Starters
         #[order]:Integer = '3'
         title 'Simple patterns'
@@ -154,7 +157,6 @@ CheckmatePatterns{
 
 }
 FirstAdvice{
-        ->(extends) General
         ->(extends) Starters
         ->(child) OpeningWise
         ->(child) MakingWiseCaptures
@@ -166,7 +168,6 @@ FirstAdvice{
 
 }
 OpeningWise{
-        ->(extends) General
         ->(extends) Starters
         ->(extends) FirstAdvice
 
@@ -179,7 +180,6 @@ OpeningWise{
 
 
 MakingWiseCaptures{
-        ->(extends) General
         ->(extends) Starters
         ->(extends) FirstAdvice
 
@@ -190,7 +190,6 @@ MakingWiseCaptures{
 
 }
 Notation{
-        ->(extends)General
         ->(extends)Starters
 
         #[order]:Integer = '6'
@@ -210,7 +209,6 @@ Optional{
 }
 
 Quotes{
-        ->(extends)General
         ->(extends)Optional
         #[order]:Integer = '2'
         title 'Quotes'
@@ -218,7 +216,6 @@ Quotes{
         #content:String ='~ return "[[=quotes.xhtml]]";'
 }
 PawnGame{
-        ->(extends)General
         ->(extends)Optional
         #[order]:Integer = '3'
         title 'Pawn Game'
@@ -332,15 +329,15 @@ Openings2{
         #[order]:Integer = '2'
         title 'Some openings'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening.xhtml]]";'
 
 }
 OpeningSurvey2{
         ->(extends) Professional
         #[order]:Integer = '6'
-        title 'King\'s Indian Defence'
+        title 'Kings Indian Defence'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening_3.xhtml]]";'
 
 }
 OpeningSurvey3{
@@ -348,7 +345,7 @@ OpeningSurvey3{
         #[order]:Integer = '7'
         title 'Nimzo-Indian Defence'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening_4.xhtml]]";'
 
 }
 OpeningSurvey4{
@@ -356,15 +353,15 @@ OpeningSurvey4{
         #[order]:Integer = '2'
         title 'Benko Gambit'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening_1.xhtml]]";'
 
 }
 OpeningSurvey5{
         ->(extends) Professional
         #[order]:Integer = '8'
-        title 'Queen\'s Gambit'
+        title 'Queens Gambit'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening_5.xhtml]]";'
 
 }
 OpeningSurvey6{
@@ -372,7 +369,7 @@ OpeningSurvey6{
         #[order]:Integer = '5'
         title 'Gruenfeld Defence'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/prof/opening_2.xhtml]]";'
 }
 Quiz{
         ->(extends) Professional
@@ -448,7 +445,7 @@ Repertoire2{
 Repertoire3{
         ->(extends) Professional
         #[order]:Integer = '3'
-        title 'King\'s Indian Defence'
+        title 'Kings Indian Defence'
         h1 'Tutorial for professional players'
         #content:String ='~ return "[[=placeholder.xhtml]]";'
 
@@ -456,7 +453,7 @@ Repertoire3{
 Repertoire4{
         ->(extends) Professional
         #[order]:Integer = '5'
-        title 'Queen\'s Gambit'
+        title 'Queens Gambit'
         h1 'Tutorial for professional players'
         #content:String ='~ return "[[=placeholder.xhtml]]";'
 
