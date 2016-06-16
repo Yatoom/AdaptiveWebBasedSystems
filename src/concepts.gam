@@ -363,7 +363,7 @@ OpeningSurvey2{
         ->(extends) Professional
         #[order]:Integer = '6'
         title 'Kings Indian Defence'
-        h1 'Tutorial for professional players'
+        h1 'Kings Indian Defence'
         #content:String ='~ return "[[=xml/prof/opening_3.xhtml]]";'
 
 }
@@ -371,7 +371,7 @@ OpeningSurvey3{
         ->(extends) Professional
         #[order]:Integer = '7'
         title 'Nimzo-Indian Defence'
-        h1 'Tutorial for professional players'
+        h1 'Nimzo-Indian Defence'
         #content:String ='~ return "[[=xml/prof/opening_4.xhtml]]";'
 
 }
@@ -379,7 +379,7 @@ OpeningSurvey4{
         ->(extends) Professional
         #[order]:Integer = '2'
         title 'Benko Gambit'
-        h1 'Tutorial for professional players'
+        h1 'Benko Gambit'
         #content:String ='~ return "[[=xml/prof/opening_1.xhtml]]";'
 
 }
@@ -387,7 +387,7 @@ OpeningSurvey5{
         ->(extends) Professional
         #[order]:Integer = '8'
         title 'Queens Gambit'
-        h1 'Tutorial for professional players'
+        h1 'Queens Gambit'
         #content:String ='~ return "[[=xml/prof/opening_5.xhtml]]";'
 
 }
@@ -395,7 +395,7 @@ OpeningSurvey6{
         ->(extends) Professional
         #[order]:Integer = '5'
         title 'Gruenfeld Defence'
-        h1 'Tutorial for professional players'
+        h1 'Gruenfeld Defence'
         #content:String ='~ return "[[=xml/prof/opening_2.xhtml]]";'
 }
 Quiz{
@@ -420,8 +420,8 @@ Tips{
         ->(child) ImprovingTips
         #[order]:Integer = '5'
         title 'Tips'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'Tips'
+        #content:String ='~ return "[[=xml/prof/tips.xhtml]]";'
 
 }
 WinningTips{
@@ -449,47 +449,52 @@ Repertoire{
         ->(child) Repertoire5
         #[order]:Integer = '7'
         title 'Opening repertoire'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'Systems against some openings'
+        #content:String ='~ return "[[=xml/prof/rep.xhtml]]";'
 
 }
 Repertoire1{
         ->(extends) Professional
+        ->(prereq) OpeningSurvey4
         #[order]:Integer = '1'
         title 'Benko Gambit'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'A system against Benko Gambit'
+        #content:String ='~ return "[[=xml/prof/rep_1.xhtml]]";'
 
 }
 Repertoire2{
         ->(extends) Professional
+        ->(prereq) OpeningSurvey6
         #[order]:Integer = '2'
         title 'Gruenfeld defence'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'An aggressive system against the Gruenfeld Defence'
+        #content:String ='~ return "[[=xml/prof/rep_2.xhtml]]";'
 
 }
 Repertoire3{
         ->(extends) Professional
+        ->(prereq) OpeningSurvey2
         #[order]:Integer = '3'
         title 'Kings Indian Defence'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'A system against the Kings Indian Defence'
+        #content:String ='~ return "[[=xml/prof/rep_3.xhtml]]";'
 
 }
 Repertoire4{
         ->(extends) Professional
+        ->(prereq) OpeningSurvey5
         #[order]:Integer = '5'
         title 'Queens Gambit'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'An agressive system against the Queens Gambit Declined.'
+        #content:String ='~ return "[[=xml/prof/rep_5.xhtml]]";'
 
 }
 Repertoire5{
         ->(extends) Professional
+        ->(prereq) OpeningSurvey3
         #[order]:Integer = '4'
         title 'Nimzo-Indian Defence'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'An solid aggressive and simple system against the Nimzo-Indian Defence'
+        #content:String ='~ return "[[=xml/prof/rep_4.xhtml]]";'
 
 }
