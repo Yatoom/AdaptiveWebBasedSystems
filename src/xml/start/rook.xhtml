@@ -21,5 +21,242 @@
         <p align="center"><img SRC="img/starters/rookd.gif" ALT="Rook captures" WIDTH="293" HEIGHT="291"/></p>
         <p align="left">The Rook captures the Bishop and claims the square for itself!</p>
         <p align="center"><img SRC="img/starters/rooke.gif" alt="rooke.gif (5090 bytes)" WIDTH="291" HEIGHT="291"/></p>
+
+        <br></br>
+
+        <gale:if expr="${King#visited}>0">
+            <gale:then>
+<span style="color:black">
+        <h3 align="center">Castling</h3>
+        <p align="center"><img src="img/starters/king130.gif" alt="king130.gif (1531 bytes)" WIDTH="41" HEIGHT="130"/> &nbsp;
+            <img src="img/starters/rook.gif" alt="rook.gif (1423 bytes)" WIDTH="46" HEIGHT="105"/></p>
+        <p>As already mentioned, the King is invaluable. If it is attacked then it must
+            move out of danger immediately and if it cannot be made safe then the game
+            is lost. At the beginning of a chess game there is usually a battle for the
+            centre of the board, therefore it is a good idea to move the King from the
+            action to a safe place in the corner and to move the Rook to the middle of
+            the board where it can take part in the battle. Castling allows you to do this.</p>
+        <p>The chessboard can be divided vertically into two parts. Looking at the board
+            from White's side, the left side we call the Queen's side and the right-side
+            is the King's side. These terms are important because the King has a choice
+            of which corner he goes to; he can castle to the King's side or to the Queen's
+            side. </p>
+        <p align="center"><img src="img/side.gif" alt="side.gif (7419 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">When the King castles, he moves two squares to the left or right
+            and the Rook is moved to stand on the opposite side of the King. When castling,
+            the King must always be moved first otherwise your opponent could claim that
+            you have moved the Rook instead of castling! In the diagram below neither Kings
+            have castled yet. </p>
+        <p align="center"><img src="img/castle1.gif" alt="castle1.gif (6709 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">In the diagram below the White King has castled King's side or
+            castled short. It has moved two squares to the right and the Rook has come
+            to stand on the square immediately next to the King on its opposite side. This
+            way of castling is written O-O. </p>
+        <p align="center"><img src="img/castle2.gif" alt="castle2.gif (6697 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">In the next diagram the White King has castled Queen's side or
+            castled long. Again it has moved two squares but this time it has moved to
+            the left and the Rook has come to stand on the square immediately next to the
+            King on his opposite side. This way of castling is written O-O-O. </p>
+        <p align="center"><img src="img/castle3.gif" alt="castle3.gif (6562 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">There are certain conditions which prevent either player from
+            castling: </p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/></td>
+                <td valign="top" width="100%">Castling is not possible if either the King
+                    or the Rook has moved.
+                    <p>In the diagram the King cannot castle Queen's side because the
+                        Rook has moved. </p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle4.gif" alt="castle4.gif (3039 bytes)" WIDTH="293" HEIGHT="120"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">All of the squares between the King and the Rook must be
+                        empty.<br>
+                        </br>
+                        In the diagram the King cannot castle Queen's
+                        side at present because the Knight is between the King and the Rook. </p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle5.gif" alt="castle5.gif (3173 bytes)" WIDTH="293" HEIGHT="120"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/></td>
+                <td valign="top" width="100%">
+                    <p align="left">If the King is in check it cannot castle out of check.<br>
+                    </br>
+                        In the diagram the Rook is checking the King.
+                        The King cannot castle on this turn but as long as White does not move
+                        the King to get out of check it may be possible for White to castle on
+                        a later move.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle6.gif" alt="castle6.gif (4486 bytes)" WIDTH="291" HEIGHT="183"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">The King cannot castle if doing so would put it in check.<br></br>
+
+                        In this diagram the Black Bishop is attacking
+                        the square (the highlighted square) the White King would rest on if White
+                        castled on the King's side. Consequently the White King would be in check.
+                        However, White can castle on the Queen's side and perhaps later she could
+                        castle on the King's side.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle7.gif" alt="castle7.gif (4627 bytes)" WIDTH="291" HEIGHT="183"/>&nbsp;
+        </p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">The King cannot castle if it has to cross a square which
+                        is being attacked by an enemy piece.<br>
+                        </br>
+                        In this diagram the Queen is attacking one of
+                        the squares (the highlighted square) the King would have to cross if
+                        it castled Queen's side so the King cannot castle on this side at the
+                        moment.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle8.gif" alt="castle8.gif (4640 bytes)" WIDTH="291" HEIGHT="183"/></p>
+        <p align="left">It is generally a good idea to castle early in the game to get
+            the King to safety before attacking and opening up lines in the centre. Remember
+            - those lines could lead directly to your king and leave it open to attack
+            by your opponent!</p>
+        </span>
+            </gale:then>
+        </gale:if>
+
+        <gale:if expr="${King#visited}==0">
+            <gale:then>
+                <b><p style="align:center">The castling move is not recommended because you have not read the <gale:a>king piece page<gale:attr-variable name="href" expr="&quot;King&quot;"/></gale:a>
+                    yet. We advise you to learn this first!</p></b>
+                <br></br>
+                <span style="color:lightgrey">
+                    <h3 align="center">Castling</h3>
+        <p align="center"><img src="img/starters/king130.gif" alt="king130.gif (1531 bytes)" WIDTH="41" HEIGHT="130"/> &nbsp;
+            <img src="img/starters/rook.gif" alt="rook.gif (1423 bytes)" WIDTH="46" HEIGHT="105"/></p>
+        <p>As already mentioned, the King is invaluable. If it is attacked then it must
+            move out of danger immediately and if it cannot be made safe then the game
+            is lost. At the beginning of a chess game there is usually a battle for the
+            centre of the board, therefore it is a good idea to move the King from the
+            action to a safe place in the corner and to move the Rook to the middle of
+            the board where it can take part in the battle. Castling allows you to do this.</p>
+        <p>The chessboard can be divided vertically into two parts. Looking at the board
+            from White's side, the left side we call the Queen's side and the right-side
+            is the King's side. These terms are important because the King has a choice
+            of which corner he goes to; he can castle to the King's side or to the Queen's
+            side. </p>
+        <p align="center"><img src="img/side.gif" alt="side.gif (7419 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">When the King castles, he moves two squares to the left or right
+            and the Rook is moved to stand on the opposite side of the King. When castling,
+            the King must always be moved first otherwise your opponent could claim that
+            you have moved the Rook instead of castling! In the diagram below neither Kings
+            have castled yet. </p>
+        <p align="center"><img src="img/castle1.gif" alt="castle1.gif (6709 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">In the diagram below the White King has castled King's side or
+            castled short. It has moved two squares to the right and the Rook has come
+            to stand on the square immediately next to the King on its opposite side. This
+            way of castling is written O-O. </p>
+        <p align="center"><img src="img/castle2.gif" alt="castle2.gif (6697 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">In the next diagram the White King has castled Queen's side or
+            castled long. Again it has moved two squares but this time it has moved to
+            the left and the Rook has come to stand on the square immediately next to the
+            King on his opposite side. This way of castling is written O-O-O. </p>
+        <p align="center"><img src="img/castle3.gif" alt="castle3.gif (6562 bytes)" WIDTH="293" HEIGHT="291"/></p>
+        <p align="left">There are certain conditions which prevent either player from
+            castling: </p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/></td>
+                <td valign="top" width="100%">Castling is not possible if either the King
+                    or the Rook has moved.
+                    <p>In the diagram the King cannot castle Queen's side because the
+                        Rook has moved. </p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle4.gif" alt="castle4.gif (3039 bytes)" WIDTH="293" HEIGHT="120"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">All of the squares between the King and the Rook must be
+                        empty.<br>
+                        </br>
+                        In the diagram the King cannot castle Queen's
+                        side at present because the Knight is between the King and the Rook. </p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle5.gif" alt="castle5.gif (3173 bytes)" WIDTH="293" HEIGHT="120"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/></td>
+                <td valign="top" width="100%">
+                    <p align="left">If the King is in check it cannot castle out of check.<br>
+                    </br>
+                        In the diagram the Rook is checking the King.
+                        The King cannot castle on this turn but as long as White does not move
+                        the King to get out of check it may be possible for White to castle on
+                        a later move.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle6.gif" alt="castle6.gif (4486 bytes)" WIDTH="291" HEIGHT="183"/></p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">The King cannot castle if doing so would put it in check.<br></br>
+
+                        In this diagram the Black Bishop is attacking
+                        the square (the highlighted square) the White King would rest on if White
+                        castled on the King's side. Consequently the White King would be in check.
+                        However, White can castle on the Queen's side and perhaps later she could
+                        castle on the King's side.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle7.gif" alt="castle7.gif (4627 bytes)" WIDTH="291" HEIGHT="183"/>&nbsp;
+        </p>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="baseline" width="42"><img src="img/chess12.gif" width="30" height="31" hspace="6"/>
+                </td>
+                <td valign="top" width="100%">
+                    <p align="left">The King cannot castle if it has to cross a square which
+                        is being attacked by an enemy piece.<br>
+                        </br>
+                        In this diagram the Queen is attacking one of
+                        the squares (the highlighted square) the King would have to cross if
+                        it castled Queen's side so the King cannot castle on this side at the
+                        moment.</p>
+                </td>
+            </tr>
+        </table>
+        <p align="center"><img src="img/castle8.gif" alt="castle8.gif (4640 bytes)" WIDTH="291" HEIGHT="183"/></p>
+        <p align="left">It is generally a good idea to castle early in the game to get
+            the King to safety before attacking and opening up lines in the centre. Remember
+            - those lines could lead directly to your king and leave it open to attack
+            by your opponent!</p>
+                        </span>
+            </gale:then>
+        </gale:if>
     </gale:text>
 </main>
