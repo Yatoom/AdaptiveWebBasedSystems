@@ -283,7 +283,13 @@ Professional{
         ->(child) Repertoire
         #[order]:Integer = '4'
         title 'Professional'
-        #suitability:Boolean = '(${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge} > 99) && (${KnowledgeQuiz#piece_knowledge} > 99 || ${IntroductionOfTheChessPieces#visitedAllChilds})' 
+        #suitability:Boolean = '
+            (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge} > 99) 
+            && 
+            (${KnowledgeQuiz#piece_knowledge} > 99 || ${IntroductionOfTheChessPieces#visitedAllChilds})
+            &&
+            !(${->(prereq)#visited} == 0 && ${->(prereq)}.length != 0)
+        ' 
         h1 'Tutorial for advanced players'
 	#content:String = '~ return "[[=xml/prof/professional.xhtml]]";'
         #prof:String = '~ return "[[=xml/prof/prof.xhtml]]";'
