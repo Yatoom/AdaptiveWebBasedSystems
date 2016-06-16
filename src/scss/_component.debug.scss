@@ -1,0 +1,41 @@
+/* =============================================================================
+  DEBUG PANEL
+============================================================================= */
+
+.debug-panel {
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  background-color: #222;
+  width: 260px;
+  color: white;
+  padding: 20px;
+  z-index: 150;
+  left: -100%;
+  transition: left 200ms;
+  color: white;
+}
+
+.debug__key {
+  font-weight: bold;
+  display: block;
+}
+
+.debug__value {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.debug-panel--open {
+  left: 0;
+}
+
+.has-debug-panel {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+
+  .navigation {
+    left: 260px;
+    width: calc(100% - 260px);
+  }
+}

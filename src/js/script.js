@@ -1,13 +1,31 @@
 function show(elem, bool) {
-    if (bool) {
-        $(elem.getElementsByTagName('ul')[0]).show();
-    }
+  if (bool) {
+    elem.getElementsByTagName('ul')[0].style.display = "block"
+  }
 }
 
 function hide(elem, bool) {
-    if (bool) {
-        $(elem.getElementsByTagName('ul')[0]).hide();
-    }
+  if (bool) {
+    elem.getElementsByTagName('ul')[0].style.display = "none"
+  }
+}
+
+function toggleDebug() {
+  if (document.querySelector(".debug-panel").classList.contains("debug-panel--open")) {
+    closeDebug()
+  } else {
+    openDebug();
+  }
+}
+
+function openDebug() {
+  document.querySelector(".debug-panel").classList.add("debug-panel--open")
+  document.querySelector(".page-container").classList.add("has-debug-panel")
+}
+
+function closeDebug() {
+  document.querySelector(".debug-panel").classList.remove("debug-panel--open")
+  document.querySelector(".page-container").classList.remove("has-debug-panel")
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
