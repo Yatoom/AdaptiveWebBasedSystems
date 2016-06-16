@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main xmlns:gale="http://gale.tue.nl/adaptation">
     <gale:if expr="!${#suitability}"><gale:then>
-    <div style="width: 400px;
-         max-width: 90%;
-         float: right;
-         margin: 10px;
-         text-align: justify;
-         border: 1px solid;
-         padding: 10px;">
+    <div class="message message--warning">
         <h3>Warning</h3>
         <p>
             The page you are currently viewing might be difficult to follow with your 
@@ -26,14 +20,18 @@
     <h1><gale:variable expr="${?h1}" /></h1>
     <gale:if expr="${->(child)}.length &gt; 0">
         <gale:then>
-            <hr />
-            <p>
-                In this section the following subjects will be covered: <br />
+            <div class="page-menu">
+              <span class="page-menu__title">
+                Professional topics
+              </span>
+              <ol class="page-menu__list">
                 <gale:for var="sub" expr="${->(child)}" sort="${#order}">
-                    <gale:a style="font-size: 0.8em;"><gale:variable expr="${%sub?title}"/><gale:attr-variable name="href" expr="&quot;%sub&quot;"/></gale:a><br />
+                    <li class="page-menu__item">
+                      <gale:a style="font-size: 0.8em;"><gale:variable expr="${%sub?title}"/><gale:attr-variable name="href" expr="&quot;%sub&quot;"/></gale:a><br />
+                    </li>
                 </gale:for>
-            </p>
-            <hr />
+              </ol>
+            </div>
         </gale:then>
     </gale:if>
     <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
