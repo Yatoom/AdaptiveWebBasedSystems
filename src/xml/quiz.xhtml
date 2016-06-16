@@ -134,7 +134,7 @@
             </gale:then>
             <gale:else>
                 <p>You are only allowed to take the quiz once. Your score was 
-                <gale:variable expr="(${KnowledgeQuiz#piece_knowledge}*5+${KnowledgeQuiz#alge_knowledge})/6" />%
+                <gale:variable expr="${#score}" />%
                 </p>
             </gale:else>
         </gale:if>

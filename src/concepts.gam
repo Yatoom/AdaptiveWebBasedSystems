@@ -56,6 +56,9 @@ KnowledgeQuiz {
         #content:String = '~ return "[[=xml/quiz.xhtml]]";'
         #piece_knowledge:Double = '-1.0'
         #alge_knowledge:Double = '-1.0'
+        #score = '(${KnowledgeQuiz#piece_knowledge}*5+${KnowledgeQuiz#alge_knowledge})/6'
+        #taken = '${KnowledgeQuiz#piece_knowledge}>= 0 && ${KnowledgeQuiz#alge_knowledge}>=0'
+        #suitability:Boolean = '!${KnowledgeQuiz#taken}'
         event ''
 }
 Chess{
@@ -414,7 +417,7 @@ Clock{
         title 'The chess clock'
         h1 'Use of the chess clock'
         #content:String ='~ return "[[=xml/prof/clock.xhtml]]";'
-
+        #suitability = '~ return true;'
 }
 Tips{
         ->(extends) Professional
@@ -449,6 +452,7 @@ Repertoire{
         ->(child) Repertoire3
         ->(child) Repertoire4
         ->(child) Repertoire5
+        ->(prereq) Openings2
         #[order]:Integer = '7'
         title 'Opening repertoire'
         h1 'Systems against some openings'

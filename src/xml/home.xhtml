@@ -4,7 +4,25 @@
         <gale:variable expr="${?h1}"/>
     </h1>
     <gale:text tag="default" type="creole">
-
+        <p>Welcome to this online adaptive chess guide. In this guide you can 
+        the basic chess moves and rules. Once you've gained enough knowledge on these
+        basic concepts, we will recommend you to study our 
+        <gale:a>professional<gale:attr-variable name="href" expr="&quot;Professional&quot;"/></gale:a> 
+        tutorial.</p>
+        
+        <p>You can navigate trough the application by using the menu on top, the submenu's on some pages
+        or by using the adaptive buttons at the bottom of the page. These buttons allow
+        you to jump to the next first, previous, next and last recommended topic in the tutorial.</p>
+        
+        <gale:if expr="!${KnowledgeQuiz#taken}">
+            <gale:then>
+                <p>It looks like you haven't taken our 
+                    <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>
+                    yet. By answering the questions in this quiz, we can determine 
+                    whether you're already smart enough to study the more advanced topics.
+                </p>
+            </gale:then>
+        </gale:if>
     </gale:text>
 </main>
 

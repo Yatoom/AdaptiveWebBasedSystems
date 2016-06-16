@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main xmlns:gale="http://gale.tue.nl/adaptation">
     <gale:if expr="!${#suitability}"><gale:then>
-    <div class="message message--warning">
-        <h3>Warning</h3>
-        <p>
-            The page you are currently viewing might be difficult to follow with your 
-            current chess knowledge. Please try to follow our 
-            <gale:a>course for beginners<gale:attr-variable name="href" expr="&quot;Starters&quot;"/></gale:a>
-            first.
-        </p>
-        <p>
-            In case you are wondering why we are telling you this and think your chess 
-            play is quite professional, then please let us check that by making the 
-            <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
-        </p>
-    </div>
+            <div class="message message--warning">
+                <h3>Warning</h3>
+                <p>
+                    The page you are currently viewing might be difficult to follow with your 
+                    current chess knowledge. Please try to follow our 
+                    <gale:a>course for beginners<gale:attr-variable name="href" expr="&quot;Starters&quot;"/></gale:a>
+                    first or use the adaptive navigation buttons at the bottom of the page
+                    to jump to another topic.
+                </p>
+                <gale:if expr="!${KnowledgeQuiz#taken}">
+                    <gale:then>
+                        <p>
+                            In case you are wondering why we are telling you this and think your chess 
+                            play is quite professional, then please let us check that by making the 
+                            <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
+                        </p>
+                    </gale:then>
+                </gale:if>
+            </div>
         </gale:then>
-        </gale:if>
+    </gale:if>
     <h1><gale:variable expr="${?h1}" /></h1>
     <gale:if expr="${->(child)}.length &gt; 0">
         <gale:then>
             <div class="page-menu">
-              <span class="page-menu__title">
-                Subtopics
-              </span>
-              <ol class="page-menu__list">
-                <gale:for var="sub" expr="${->(child)}" sort="${#order}">
-                    <li class="page-menu__item">
-                      <gale:a style="font-size: 0.8em;"><gale:variable expr="${%sub?title}"/><gale:attr-variable name="href" expr="&quot;%sub&quot;"/></gale:a><br />
-                    </li>
-                </gale:for>
-              </ol>
+                <span class="page-menu__title">
+                    Subtopics
+                </span>
+                <ol class="page-menu__list">
+                    <gale:for var="sub" expr="${->(child)}" sort="${#order}">
+                        <li class="page-menu__item">
+                            <gale:a style="font-size: 0.8em;"><gale:variable expr="${%sub?title}"/><gale:attr-variable name="href" expr="&quot;%sub&quot;"/></gale:a><br />
+                        </li>
+                    </gale:for>
+                </ol>
             </div>
         </gale:then>
     </gale:if>
-    <gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object>
+    <gale:if expr="${->(prereq)#visited} == 0 &amp;&amp; ${->(prereq)}.length != 0">
+        <gale:then>This content remains hidden until you've gained enough knowledge 
+            about <gale:a><gale:variable expr="${->(prereq)?title}" />
+                <gale:attr-variable name="href" expr="${->(prereq)[0]}.getUri()"/></gale:a>.
+        </gale:then>
+        <gale:else><gale:object><gale:attr-variable name="data" expr="${#content}" /></gale:object></gale:else>
+    </gale:if>
+
 </main>
