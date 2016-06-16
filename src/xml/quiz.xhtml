@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<main xmlns:gale="http://gale.tue.nl/adaptation">
+    <h1>
+        <gale:variable expr="${?h1}"/>
+    </h1>
+    <gale:text tag="default" type="creole">
+        <gale:if expr="${KnowledgeQuiz#alge_knowledge}&lt;0">
+            <gale:then>
+                <p>This quiz tries to determine your current chess knowledge. Please 
+                    answer all questions honestly to get the best results.</p>
+                <gale:if expr="${KnowledgeQuiz#piece_knowledge}&lt;0">
+                    <gale:then>
+                        <gale:test 
+                            title="Quiz"
+                            action="#{KnowledgeQuiz#piece_knowledge,value};"
+                            expr="true" 
+                            ask="5"
+                            alt="[You are not allowed to repeat this test.]" 
+                            verbose="false">
+                            <gale:question 
+                                answers="3" 
+                                right="1">
+                                <p>True or False: Black should move. Can the black pawn capture the white knight?</p>
+                                <img src="http://www.chesscorner.com/tutorial/basic/knight/knighte.gif" />
+                                <gale:answer correct="true">
+                                    False
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    True
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                            <gale:question
+                                answers="7"
+                                right="1">
+                                <p>Which piece can be promoted by reaching the last rank?</p>
+                                <gale:answer correct="true">
+                                    Pawn
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    Queen
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    All
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    All, except king
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    All, except king and queen
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    All, except pieces that can move in a diagonal direction
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                            <gale:question
+                                answers="3"
+                                right="1">
+                                <p>Which piece is shown in the image below?</p>
+                                <img src="http://www.chesscorner.com/tutorial/basic/queen/queenb.gif" />
+                                <gale:answer correct="true">
+                                    Queen
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    King
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                            <gale:question
+                                answers="3"
+                                right="1">
+                                <p>Which player has the first move?</p>
+                                <gale:answer correct="true">
+                                    White
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    Black
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                            <gale:question 
+                                answers="3" 
+                                right="1">
+                                <p>True or False: After the knight has moved the colour of the tile always changes.</p>
+                                <gale:answer correct="false">
+                                    False
+                                </gale:answer>
+                                <gale:answer correct="true">
+                                    True
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                        </gale:test>
+                    </gale:then>
+                    <gale:else>
+                        <gale:test 
+                            title="Quiz"
+                            action="#{KnowledgeQuiz#alge_knowledge,value};"
+                            expr="true" 
+                            ask="1"
+                            alt="[You are not allowed to repeat this test.]" 
+                            verbose="false">
+                            <gale:question 
+                                answers="4" 
+                                right="1">
+                                <p>Ng1-f3 Qg5xg3+ means?</p>
+                                <gale:answer correct="true">
+                                    The white knight moves to f3 and the black queen captures a piece at g3 and thereby checks the white king.
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    The white bishop goes to g1, while at f3 the black queen has two possible pieces to capture, namely at g5 and g3.
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    The white rook can move to either any square between g1 and f3, while the black queen has to move to either g5 or g3.
+                                </gale:answer>
+                                <gale:answer correct="false">
+                                    I don't know
+                                </gale:answer>
+                            </gale:question>
+                        </gale:test>
+                    </gale:else>
+                </gale:if>
+            </gale:then>
+            <gale:else>
+                <p>You are only allowed to take the quiz once. Your score was 
+                <gale:variable expr="(${KnowledgeQuiz#piece_knowledge}*5+${KnowledgeQuiz#alge_knowledge})/6" />%
+                </p>
+            </gale:else>
+        </gale:if>
+    </gale:text>
+</main>
+
+

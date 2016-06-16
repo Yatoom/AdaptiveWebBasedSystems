@@ -53,8 +53,10 @@ KnowledgeQuiz {
         ->(extends) General
         title 'Knowledge Quiz'
         h1 'Test your knowledge'
-        #content:String = '~ return "[[=placeholder.xhtml]]";'
-        #resource = '~ return "[[=layout.xhtml]]";'
+        #content:String = '~ return "[[=xml/quiz.xhtml]]";'
+        #piece_knowledge:Double = '-1.0'
+        #alge_knowledge:Double = '-1.0'
+        event ''
 }
 Chess{
         ->(extends) General
@@ -260,10 +262,10 @@ Professional{
         ->(child) Repertoire
         #[order]:Integer = '4'
         title 'Professional'
-        #suitability:Boolean = '${Notation#visited} > 0' 
+        #suitability:Boolean = '(${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge} > 99) && (${KnowledgeQuiz#piece_knowledge} > 99 || ${IntroductionOfTheChessPieces#visitedAllChilds})' 
         h1 'Tutorial for advanced players'
-	#content:String ='~ return "[[=xml/prof/professional.xhtml]]";'
-        #prof:String ='~ return "[[=xml/prof/prof.xhtml]]";'
+	#content:String = '~ return "[[=xml/prof/professional.xhtml]]";'
+        #prof:String = '~ return "[[=xml/prof/prof.xhtml]]";'
 
 }
 Tactics2{
@@ -279,7 +281,7 @@ Tactics2{
         #[order]:Integer = '1'
         title 'Tactics'
         h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=xml/prof/tactics.xhtml]]";'
+        #content:String = '~ return "[[=xml/prof/tactics.xhtml]]";'
 
 }
 Forks{
