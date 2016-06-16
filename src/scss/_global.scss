@@ -27,16 +27,20 @@ a.neutral {
     color: black !important;
 }
 
+.page-container {
+  width: 100%;
+  transition: all 200ms;
+  margin-left: 0;
+  height: 100%;
+}
+
 .page {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-}
-
-.navigation {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
+    padding-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .content {

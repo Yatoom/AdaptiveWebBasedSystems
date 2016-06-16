@@ -82,6 +82,7 @@ Starters{
 	title 'Elementary'
         h1 'Tutorial for beginners: Introduction of the Game'
 	#content:String ='~ return "[[=placeholder.xhtml]]";'
+	#suit:String ='~ return "[[=xml/suitable.xhtml]]";'
 	
 }
 
@@ -101,7 +102,7 @@ IntroductionOfTheChessPieces{
 
 }
 Pawn{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '1'
@@ -111,7 +112,7 @@ Pawn{
 
 }
 Knight{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '2'
@@ -123,7 +124,7 @@ Knight{
 
 
 Bishop{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '3'
@@ -133,7 +134,7 @@ Bishop{
 
 }
 Rook{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '4'
@@ -143,7 +144,7 @@ Rook{
 
 }
 Queen{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '5'
@@ -153,7 +154,7 @@ Queen{
 
 }
 King{
-        ->(extends) Starters
+        
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '6'
@@ -165,6 +166,9 @@ King{
 
 Check{
         ->(extends) Starters
+
+        #suitability:Boolean = '${IntroductionOfTheChessPieces#visited} > 0'
+
         #[order]:Integer = '2'
         title 'Game Endings and Check'
         h1 'Game Ending: Check, Checkmate and Stalemate'
@@ -173,6 +177,9 @@ Check{
 
 FormalGameRules{
         ->(extends) Starters
+
+        #suitability:Boolean = '${Check#visited} > 0'
+
         #[order]:Integer = '4'
         title 'General Game Rules'
         h1 'Formal Game Rules of Chess'
@@ -181,6 +188,9 @@ FormalGameRules{
 }
 CheckmatePatterns{
         ->(extends) Starters
+
+        #suitability:Boolean = '${Check#visited} > 0'
+
         #[order]:Integer = '3'
         title 'Simple patterns'
         h1 'Checkmating patterns: examples of checkmate positions'
@@ -193,6 +203,8 @@ FirstAdvice{
         ->(child) OpeningWise
         ->(child) MakingWiseCaptures
 
+        #suitability:Boolean = '${Check#visited} > 0'
+
         #[order]:Integer = '5'
         title 'First Guidance'
         h1 'First Guidance and Advice for Playing Chess'
@@ -200,7 +212,7 @@ FirstAdvice{
 
 }
 OpeningWise{
-        ->(extends) Starters
+        
         ->(extends) FirstAdvice
 
         #[order]:Integer = '1'
@@ -212,7 +224,7 @@ OpeningWise{
 
 
 MakingWiseCaptures{
-        ->(extends) Starters
+        
         ->(extends) FirstAdvice
 
         #[order]:Integer = '2'
@@ -223,6 +235,8 @@ MakingWiseCaptures{
 }
 Notation{
         ->(extends)Starters
+
+        #suitability:Boolean = '${Check#visited} > 0'
 
         #[order]:Integer = '6'
         title 'Notation of Chess Moves'
@@ -249,10 +263,14 @@ Quotes{
 }
 PawnGame{
         ->(extends)Optional
+
+        #suitability:Boolean = '${Pawn#visited} > 0'
+
         #[order]:Integer = '3'
         title 'Pawn Game'
         h1 'The Pawn Game'
         #content:String ='~ return "[[=pawngame.xhtml]]";'
+        #pawngamesuit:String ='~ return "[[=xml/suitable.xhtml]]";'
 }
 
 Professional{

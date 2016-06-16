@@ -4,10 +4,33 @@
 
 .navigation {
   width: 100%;
-  // border-bottom: 1px solid #cacaca;
   margin-bottom: 20px;
-  box-shadow: 0 0 5px 0 #222;
+  border-bottom: 1px solid #cacaca;
   padding-top: 20px;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  z-index: 100;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 200ms !important; // sorry!
+}
+
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+  transform: translateY(0%);
+}
+
+.headroom--unpinned {
+  transform: translateY(-100%);
 }
 
 .menu {
@@ -27,7 +50,7 @@
 
 .menu__item {
   list-style-type: none;
-  
+
   a {
     padding: 10px;
     display: block;
@@ -35,12 +58,12 @@
 
   &:hover {
     background: whitesmoke;
-  } 
+  }
 }
 
 .menu__item--main {
   display: inline-block;
-  
+
   > a {
     padding: 20px;
   }
@@ -62,5 +85,5 @@
 .submenu--sub {
   top: -1px;
   left: 100%;
-  width: 100%;  
+  width: 100%;
 }
