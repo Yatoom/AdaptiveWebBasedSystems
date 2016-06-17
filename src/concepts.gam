@@ -284,9 +284,15 @@ Professional{
         #[order]:Integer = '4'
         title 'Professional'
         #suitability:Boolean = '
-            (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge} > 99) 
-            && 
-            (${KnowledgeQuiz#piece_knowledge} > 99 || ${IntroductionOfTheChessPieces#visitedAllChilds})
+            (
+                (
+                    (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge}.intValue() == 100) 
+                    && 
+                    (${KnowledgeQuiz#piece_knowledge}.intValue() == 100 || ${IntroductionOfTheChessPieces#visitedAllChilds})
+                )
+                ||
+                ${Quiz#easy}.intValue() == 100
+            )
             &&
             !(${->(prereq)#visited} == 0 && ${->(prereq)}.length != 0)
         ' 
@@ -431,8 +437,10 @@ Quiz{
         ->(extends) Professional
         #[order]:Integer = '3'
         title 'Best move quiz'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'What is the best move?'
+        #easy:Double = '-1.0'
+        #advanced:Double = '-1.0'
+        #content:String ='~ return "[[=xml/prof/quiz.xhtml]]";'
 
 }
 Clock{
