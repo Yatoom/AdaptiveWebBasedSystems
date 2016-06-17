@@ -33,57 +33,101 @@
   transform: translateY(-100%);
 }
 
-.menu {
-  width: 100%;
-  padding-left: 0;
-  margin: 0;
+/* =============================================================================
+  MENU EXTENDER
+============================================================================= */
+
+.menu__item.has-sub a {
+  padding-right: 10px;
 }
 
-.name {
-  padding: 20px;
-  text-transform: uppercase;
-  background: #333;
-  color: white;
-  font-weight: bold;
-  float: left;
+.menu__extend {
+  padding: 10px;
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 
-.menu__item {
-  list-style-type: none;
+.menu__extend--main {
+  padding: 20px 10px;
+}
 
-  a {
-    padding: 10px;
+.menu__extend:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+  MENU ON SMALL SCREEN
+============================================================================= */
+@media (max-width: 599px) {
+  .menu {
+    list-style: outside none none;
+    padding-left: 0px;
+  }
+}
+
+/* =============================================================================
+  MENU ON WIDE SCREEN
+============================================================================= */
+@media (min-width: 600px) {
+  .menu {
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .name {
+    padding: 20px;
+    text-transform: uppercase;
+    background: #333;
+    color: white;
+    font-weight: bold;
+    float: left;
+  }
+
+  .menu__item {
+    list-style-type: none;
+    display: flex;
+
+    a {
+      padding: 10px;
+      display: inline-block;
+      flex: 1 0 auto;
+    }
+
+    &:hover {
+      background: whitesmoke;
+    }
+  }
+
+  .menu__item--main {
+    display: inline-block;
+
+    > a {
+      padding: 20px;
+    }
+  }
+
+  .menu__item--sub {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    padding-left: 0;
+    border: 1px solid rgb(202, 202, 202);
+    background: white;
+  }
+
+  .submenu.is-open {
     display: block;
   }
 
-  &:hover {
-    background: whitesmoke;
+  .submenu--sub {
+    top: -1px;
+    left: 100%;
+    width: 100%;
   }
-}
 
-.menu__item--main {
-  display: inline-block;
-
-  > a {
-    padding: 20px;
-  }
-}
-
-.menu__item--sub {
-  position: relative;
-}
-
-.submenu {
-  display: none;
-  position: absolute;
-  list-style-type: none;
-  padding-left: 0;
-  border: 1px solid rgb(202, 202, 202);
-  background: white;
-}
-
-.submenu--sub {
-  top: -1px;
-  left: 100%;
-  width: 100%;
 }

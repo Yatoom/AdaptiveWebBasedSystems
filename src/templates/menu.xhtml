@@ -1,42 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<nav class="navigation headroom" xmlns:gale="http://gale.tue.nl/adaptation">
-  <div class='grid'>
-    <div class='name'>
-      Chess edge
-    </div>
-    <ul class="menu">
+  <nav class="navigation headroom" xmlns:gale="http://gale.tue.nl/adaptation">
+    <div class='grid'>
+      <div class='name'>
+        Chess edge
+      </div>
+      <ul class="menu">
         <gale:for var="m1" expr="${General->(child)}" sort="${#order}">
-            <gale:if expr="${%m1->(child)}.length &gt; 0">
-                <gale:then>
-                    <li class="menu__item menu__item--main" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/> <i class="fa fa-caret-down" aria-hidden="true"></i></gale:a>
-                        <ul class='submenu'>
-                            <gale:for var="m2" expr="${%m1->(child)}" sort="${#order}">
-                                <gale:if expr="${%m2->(child)}.length &gt; 0">
-                                    <gale:then>
-                                        <li class="menu__item menu__item--sub" onmouseover="show(this, true)" onmouseout="hide(this, true)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/> <i class="fa fa-caret-right" aria-hidden="true"></i></gale:a>
-                                            <ul class="submenu submenu--sub">
-                                                <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
-                                                    <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m3?title}"/><gale:attr-variable name="href" expr="&quot;%m3&quot;"/></gale:a></li>
-                                                </gale:for>
-                                            </ul>
-                                        </li>
-                                    </gale:then>
-                                    <gale:else>
-                                        <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m2?title}"/><gale:attr-variable name="href" expr="&quot;%m2&quot;"/></gale:a></li>
-                                    </gale:else>
-                                </gale:if>
+
+          <!-- If the parent has children -->
+          <gale:if expr="${%m1->(child)}.length &gt; 0">
+            <gale:then>
+              <li class="menu__item menu__item--main has-sub">
+                <gale:a>
+                  <gale:variable expr="${%m1?title}" />
+                  <gale:attr-variable name="href" expr="&quot;%m1&quot;" />
+                </gale:a>
+                <span class='menu__extend menu__extend--main' onclick="extend(this)">
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </span>
+                <ul class='submenu'>
+                  <gale:for var="m2" expr="${%m1->(child)}" sort="${#order}">
+
+                    <!-- If the child has children -->
+                    <gale:if expr="${%m2->(child)}.length &gt; 0">
+                      <gale:then>
+                        <li class="menu__item menu__item--sub has-sub">
+                          <gale:a>
+                            <gale:variable expr="${%m2?title}" />
+                            <gale:attr-variable name="href" expr="&quot;%m2&quot;" /></gale:a>
+                          <span class='menu__extend' onclick="extend(this)">
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                          </span>
+                          <ul class="submenu submenu--sub">
+                            <gale:for var="m3" expr="${%m2->(child)}" sort="${#order}">
+                              <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)">
+                                <gale:a>
+                                  <gale:variable expr="${%m3?title}" />
+                                  <gale:attr-variable name="href" expr="&quot;%m3&quot;" /></gale:a>
+                              </li>
                             </gale:for>
-                        </ul>
-                    </li>
-                </gale:then>
-                <gale:else>
-                    <li class='menu__item menu__item--main' onmouseover="show(this, false)" onmouseout="hide(this, false)"><gale:a><gale:variable expr="${%m1?title}"/><gale:attr-variable name="href" expr="&quot;%m1&quot;"/></gale:a></li>
-                </gale:else>
-            </gale:if>
+                          </ul>
+                        </li>
+                      </gale:then>
+                      <!-- End if -->
+
+                      <!-- Else: the child has no children -->
+                      <gale:else>
+                        <li class='menu__item' onmouseover="show(this, false)" onmouseout="hide(this, false)">
+                          <gale:a>
+                            <gale:variable expr="${%m2?title}" />
+                            <gale:attr-variable name="href" expr="&quot;%m2&quot;" /></gale:a>
+                        </li>
+                      </gale:else>
+                      <!-- End else -->
+                    </gale:if>
+                  </gale:for>
+                </ul>
+              </li>
+            </gale:then>
+            <!-- End if -->
+
+            <!-- Else: the parent has no children -->
+            <gale:else>
+              <li class='menu__item menu__item--main' onmouseover="show(this, false)" onmouseout="hide(this, false)">
+                <gale:a>
+                  <gale:variable expr="${%m1?title}" />
+                  <gale:attr-variable name="href" expr="&quot;%m1&quot;" /></gale:a>
+              </li>
+            </gale:else>
+            <!-- End else -->
+          </gale:if>
         </gale:for>
         <li class="menu__item menu__item--main">
           <a href='javascript:void(0)' onclick='toggleDebug()'> <i class="fa fa-bug" aria-hidden="true"></i></a>
         </li>
-    </ul>
+      </ul>
     </div>
-</nav>
+  </nav>
