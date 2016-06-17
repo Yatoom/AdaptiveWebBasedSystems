@@ -81,7 +81,7 @@ Starters{
         #[order]:Integer = '2'
 	title 'Elementary'
         h1 'Tutorial for beginners: Introduction of the Game'
-	#content:String ='~ return "[[=placeholder.xhtml]]";'
+	#content:String ='~ return "[[=xml/starters.xhtml]]";'
 	#suit:String ='~ return "[[=xml/suitable.xhtml]]";'
 	
 }
@@ -98,7 +98,7 @@ IntroductionOfTheChessPieces{
         #[order]:Integer = '1'
         title 'Chess Pieces Introduction'
         h1 'Introduction to the Chess Pieces'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/introboardpieces.xhtml]]";'
 
 }
 Pawn{
@@ -251,7 +251,7 @@ Optional{
         #[order]:Integer = '3'
         title 'Optional Material'
         h1 'Making Wise Captures'
-        #content:String ='~ return "[[=quotes.xhtml]]";'
+        #content:String ='~ return "[[=xml/optional.xhtml]]";'
 }
 
 Quotes{
