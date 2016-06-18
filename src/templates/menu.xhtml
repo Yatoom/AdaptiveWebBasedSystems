@@ -4,8 +4,10 @@
       <div class='name'>
         Chess edge
       </div>
-      <div class='menu-button' onclick="toggle('.menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i>
+      <div class='menu-button'>
+        <span onclick="toggle('.menu')">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </span>
       </div>
       <ul class="menu">
         <gale:for var="m1" expr="${General->(child)}" sort="${#order}">

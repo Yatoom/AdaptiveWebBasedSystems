@@ -24,18 +24,31 @@
 .debug__value {
   display: block;
   margin-bottom: 1rem;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .debug-panel--open {
   left: 0;
 }
 
-.has-debug-panel {
-  margin-left: 260px;
-  width: calc(100% - 260px);
+.close-debug {
+  float: right;
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
-  .navigation {
-    left: 260px;
+.has-debug-panel {
+  @media ($md) {
+    margin-left: 260px;
     width: calc(100% - 260px);
+    .navigation {
+      left: 260px;
+      width: calc(100% - 260px);
+    }
   }
 }
