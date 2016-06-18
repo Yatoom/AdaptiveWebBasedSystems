@@ -2,8 +2,6 @@
   DEBUG PANEL
 ============================================================================= */
 
-$debug-panel-width: 260px;
-
 .debug-panel {
   height: 100%;
   position: fixed;
@@ -45,12 +43,12 @@ $debug-panel-width: 260px;
 }
 
 .has-debug-panel {
-  @media ($md) {
+  @media ($md-with-panel) {
     margin-left: $debug-panel-width;
-    width: calc(100% - $debug-panel-width);
+    width: calc(100% - #{$debug-panel-width});
     .navigation {
       left: 260px;
-      width: calc(100% - $debug-panel-width);
+      width: calc(100% - #{$debug-panel-width});
     }
   }
 }
