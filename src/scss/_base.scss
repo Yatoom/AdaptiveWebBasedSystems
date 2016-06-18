@@ -21,4 +21,11 @@ body {
 
 table {
   width: 100%;
+  text-align: left;
+}
+
+img,
+figure {
+  max-width: 100%;
+  height: auto;
 }

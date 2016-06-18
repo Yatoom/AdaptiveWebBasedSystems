@@ -8,7 +8,6 @@
   border-bottom: 1px solid #cacaca;
   padding-top: 20px;
   background: white;
-  position: fixed;
   top: 0;
   left: 0;
   flex-grow: 0;
@@ -18,6 +17,11 @@
   margin-left: auto;
   margin-right: auto;
   transition: all 200ms !important; // sorry!
+
+  position: absolute;
+  @media ($md) {
+    position: fixed;
+  }
 }
 
 .headroom {
@@ -26,17 +30,64 @@
 }
 
 .headroom--pinned {
-  transform: translateY(0%);
+  @media ($md) {
+    transform: translateY(0%);
+  }
 }
 
 .headroom--unpinned {
-  transform: translateY(-100%);
+  @media ($md) {
+    transform: translateY(-100%);
+  }
 }
 
+/* =============================================================================
+  MENU EXTENDER
+============================================================================= */
+
+.menu__item.has-sub a {
+  padding-right: 10px;
+}
+
+.menu__extend {
+  padding: 12px;
+  display: inline-block;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.menu__extend--main {
+  padding: 22px 12px;
+}
+
+.menu__extend:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+  MENU ON SMALL SCREEN
+============================================================================= */
 .menu {
   width: 100%;
   padding-left: 0;
   margin: 0;
+  list-style: outside none none;
+  padding-left: 0px;
+  display: none;
+  @media ($md) {
+    display: block;
+  }
+}
+
+.menu-button {
+  cursor: pointer;
+  text-align: right;
+  padding: 10px 0px;
+  font-size: 40px;
+  display: block;
+  @media ($md) {
+    display: none;
+  }
 }
 
 .name {
@@ -49,23 +100,30 @@
 }
 
 .menu__item {
-  list-style-type: none;
-
   a {
     padding: 10px;
-    display: block;
+    display: inline-block;
+    flex: 1 0 auto;
   }
 
   &:hover {
     background: whitesmoke;
   }
+
+  @media ($md) {
+    display: flex;
+  }
 }
 
 .menu__item--main {
-  display: inline-block;
-
   > a {
     padding: 20px;
+  }
+
+  display: block;
+
+  @media ($md) {
+    display: inline-block;
   }
 }
 
@@ -75,11 +133,18 @@
 
 .submenu {
   display: none;
-  position: absolute;
-  list-style-type: none;
-  padding-left: 0;
-  border: 1px solid rgb(202, 202, 202);
   background: white;
+
+  @media ($md) {
+    border: 1px solid #cacaca;
+    padding-left: 0;
+    position: absolute;
+  }
+}
+
+.menu.is-open,
+.submenu.is-open {
+  display: block;
 }
 
 .submenu--sub {

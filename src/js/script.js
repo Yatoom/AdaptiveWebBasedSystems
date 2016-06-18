@@ -14,7 +14,7 @@ function toggleDebug() {
   if (document.querySelector(".debug-panel").classList.contains("debug-panel--open")) {
     closeDebug()
   } else {
-    openDebug();
+    openDebug()
   }
 }
 
