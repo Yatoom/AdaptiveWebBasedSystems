@@ -65,7 +65,7 @@ Chess{
         ->(extends) General
         title 'Home'
         #[order]:Integer = '1'
-        h1 'Welcome to the Chess guide'
+        h1 'Welcome to the Chess Tutorial Guide'
         #content:String ='~ return "[[=xml/home.xhtml]]";'
 }
 
@@ -96,7 +96,7 @@ IntroductionOfTheChessPieces{
         ->(child) King
 
         #[order]:Integer = '1'
-        title 'Chess Pieces Introduction'
+        title 'Chess Pieces Introduction and the Board Setup'
         h1 'Introduction to the Chess Pieces'
         #content:String ='~ return "[[=xml/introboardpieces.xhtml]]";'
 
@@ -240,7 +240,7 @@ Notation{
 
         #[order]:Integer = '6'
         title 'Notation of Chess Moves'
-        h1 'Making Wise Captures'
+        h1 'Notation System of Chess Moves'
         #content:String ='~ return "[[=xml/start/notation.xhtml]]";'
 }
 
@@ -250,7 +250,7 @@ Optional{
         ->(child)PawnGame
         #[order]:Integer = '3'
         title 'Optional Material'
-        h1 'Making Wise Captures'
+        h1 'Optional Material'
         #content:String ='~ return "[[=xml/optional.xhtml]]";'
 }
 
