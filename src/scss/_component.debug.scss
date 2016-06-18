@@ -2,16 +2,18 @@
   DEBUG PANEL
 ============================================================================= */
 
+$debug-panel-width: 260px;
+
 .debug-panel {
   height: 100%;
   position: fixed;
   top: 0px;
   background-color: #222;
-  width: 260px;
+  width: $debug-panel-width;
   color: white;
   padding: 20px;
   z-index: 150;
-  left: -100%;
+  left: -$debug-panel-width;
   transition: left 200ms;
   color: white;
 }
@@ -44,11 +46,11 @@
 
 .has-debug-panel {
   @media ($md) {
-    margin-left: 260px;
-    width: calc(100% - 260px);
+    margin-left: $debug-panel-width;
+    width: calc(100% - $debug-panel-width);
     .navigation {
       left: 260px;
-      width: calc(100% - 260px);
+      width: calc(100% - $debug-panel-width);
     }
   }
 }
