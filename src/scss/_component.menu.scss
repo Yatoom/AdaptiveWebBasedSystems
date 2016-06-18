@@ -8,7 +8,6 @@
   border-bottom: 1px solid #cacaca;
   padding-top: 20px;
   background: white;
-  position: fixed;
   top: 0;
   left: 0;
   flex-grow: 0;
@@ -18,6 +17,11 @@
   margin-left: auto;
   margin-right: auto;
   transition: all 200ms !important; // sorry!
+
+  position: absolute;
+  @media (min-width: 800px) {
+    position: fixed;
+  }
 }
 
 .headroom {
@@ -26,11 +30,15 @@
 }
 
 .headroom--pinned {
-  transform: translateY(0%);
+  @media (min-width: 800px) {
+    transform: translateY(0%);
+  }
 }
 
 .headroom--unpinned {
-  transform: translateY(-100%);
+  @media (min-width: 800px) {
+    transform: translateY(-100%);
+  }
 }
 
 /* =============================================================================
@@ -58,76 +66,88 @@
 /* =============================================================================
   MENU ON SMALL SCREEN
 ============================================================================= */
-@media (max-width: 599px) {
-  .menu {
-    list-style: outside none none;
-    padding-left: 0px;
+.menu {
+  width: 100%;
+  padding-left: 0;
+  margin: 0;
+  list-style: outside none none;
+  padding-left: 0px;
+  display: none;
+  @media (min-width: 800px) {
+    display: block;
   }
 }
 
-/* =============================================================================
-  MENU ON WIDE SCREEN
-============================================================================= */
-@media (min-width: 600px) {
-  .menu {
-    width: 100%;
-    padding-left: 0;
-    margin: 0;
-  }
-
-  .name {
-    padding: 20px;
-    text-transform: uppercase;
-    background: #333;
-    color: white;
-    font-weight: bold;
-    float: left;
-  }
-
-  .menu__item {
-    list-style-type: none;
-    display: flex;
-
-    a {
-      padding: 10px;
-      display: inline-block;
-      flex: 1 0 auto;
-    }
-
-    &:hover {
-      background: whitesmoke;
-    }
-  }
-
-  .menu__item--main {
-    display: inline-block;
-
-    > a {
-      padding: 20px;
-    }
-  }
-
-  .menu__item--sub {
-    position: relative;
-  }
-
-  .submenu {
+.menu-button {
+  cursor: pointer;
+  text-align: right;
+  padding: 10px 0px;
+  font-size: 40px;
+  display: block;
+  @media (min-width: 800px) {
     display: none;
-    position: absolute;
-    list-style-type: none;
+  }
+}
+
+.name {
+  padding: 20px;
+  text-transform: uppercase;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  float: left;
+}
+
+.menu__item {
+  a {
+    padding: 10px;
+    display: inline-block;
+    flex: 1 0 auto;
+  }
+
+  &:hover {
+    background: whitesmoke;
+  }
+
+  @media (min-width: 800px) {
+    display: flex;
+  }
+}
+
+.menu__item--main {
+  > a {
+    padding: 20px;
+  }
+
+  display: block;
+
+  @media (min-width: 800px) {
+    display: inline-block;
+  }
+}
+
+.menu__item--sub {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  background: white;
+
+  @media (min-width: 800px) {
+    border: 1px solid #cacaca;
     padding-left: 0;
-    border: 1px solid rgb(202, 202, 202);
-    background: white;
+    position: absolute;
   }
+}
 
-  .submenu.is-open {
-    display: block;
-  }
+.menu.is-open,
+.submenu.is-open {
+  display: block;
+}
 
-  .submenu--sub {
-    top: -1px;
-    left: 100%;
-    width: 100%;
-  }
-
+.submenu--sub {
+  top: -1px;
+  left: 100%;
+  width: 100%;
 }

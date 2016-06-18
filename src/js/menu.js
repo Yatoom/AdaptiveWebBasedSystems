@@ -37,3 +37,12 @@ function extend(elem) {
   // Check if menu is open or closed
   submenu.classList.contains('is-open') ? close() : open()
 }
+
+function toggle(selector) {
+  var item = document.querySelector(selector)
+  if (item.classList.contains('is-open')) {
+    item.classList.remove('is-open')
+  } else {
+    item.classList.add('is-open')
+  }
+}
