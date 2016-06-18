@@ -169,7 +169,7 @@ King{
 Check{
         ->(extends) Starters
 
-        #suitability:Boolean = '${IntroductionOfTheChessPieces#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
+        #suitability:Boolean = '${IntroductionOfTheChessPieces#visitedAllChilds} || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '2'
         title 'Game Endings and Check'
