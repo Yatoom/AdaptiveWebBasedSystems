@@ -34,7 +34,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   sr.reveal('img');
 
   // Make menu show up on scroll up, but hide on scroll down (for later, have to fix a few things first)
-  var header = document.querySelector(".headroom");
-  var headroom  = new Headroom(header);
+  var header = document.querySelector(".headroom")
+  var footer = document.querySelector("footer")
+  var headroom  = new Headroom(header)
+  var footerroom  = new Headroom(footer)
   headroom.init();
+  footerroom.init();
 });
