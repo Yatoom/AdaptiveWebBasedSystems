@@ -81,12 +81,22 @@
 }
 
 .menu-button {
-  cursor: pointer;
-  padding: 5px 0 5px 10px;
-  font-size: 40px;
   display: inline-block;
-  padding-right: 0;
   float: right;
+  cursor: pointer;
+  font-size: 40px;
+  height: calc(1ex + 40px);
+  position: relative;
+  padding: 0;
+  width: auto;
+
+  span {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    padding: 10px;
+  }
   @media ($md) {
     display: none;
   }
