@@ -73,17 +73,20 @@
   list-style: outside none none;
   padding-left: 0px;
   display: none;
+  overflow: hidden;
   @media ($md) {
     display: block;
+    overflow: visible;
   }
 }
 
 .menu-button {
   cursor: pointer;
-  text-align: right;
-  padding: 10px 0px;
+  padding: 5px 0 5px 10px;
   font-size: 40px;
-  display: block;
+  display: inline-block;
+  padding-right: 0;
+  float: right;
   @media ($md) {
     display: none;
   }
