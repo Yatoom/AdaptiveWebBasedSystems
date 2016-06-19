@@ -6,4 +6,7 @@ $main-color: hsl(207, 90%, 54%);
 /* =============================================================================
   BREAKPOINTS
 ============================================================================= */
-$md: "min-width: 850px";
+$md-value: 850px;
+$md: "min-width: #{$md-value}";
+$debug-panel-width: 260px;
+$md-with-panel: "min-width: #{$md-value + $debug-panel-width}"

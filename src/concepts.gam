@@ -1,34 +1,37 @@
-$options { default.properties "event;strict"} 
+$options { default.properties "event;strict"}
 
 General{
         ->(child) Chess
         ->(child) Starters
         ->(child) Optional
         ->(child) Professional
+        #count:Integer = '0'
+        #last '~ return "";'
+        #last2 '~ return "";'
         #suitability:Boolean = 'true'
         #visited:Integer = '0'
         #resource ='~ return "[[=layout.xhtml]]";'
         #visitedChilds:Integer = '0'
         #visitedAllChilds:Boolean = 'false'
         event + '
-            if (${#suitability}) { 
+            if (${#suitability}) {
                 ${#visited}++;
             }
-            
-            if (${#visited} == 1) { 
+
+            if (${#visited} == 1) {
                 ${<-(child)#visitedChilds}++;
                 if (${->(child)}.length == 0) {
                     ${#visitedAllChilds} = true;
                 }
             }
 
-            if (${#visited} == 1) { 
+            if (${#visited} == 1) {
                 Object siblings[] = ${<-(child)=>(child)#visitedAllChilds};
                 Object siblingss[] = ${<-(child)->(child)};
                 boolean siblings_check = true;
                 for (int i = 0; i < siblings.length; i++) {
                     if (!siblingss[i].equals(${.})) {
-                        siblings_check = siblings_check && ((Boolean) siblings[i]); 
+                        siblings_check = siblings_check && ((Boolean) siblings[i]);
                     }
                 }
                 ${<-(child)#visitedAllChilds} = siblings_check;
@@ -41,12 +44,12 @@ General{
                     output = output && ((Boolean) childs[i]) && ((Integer) childss[i]) > 0;
                 }
                 if (${#visitedChilds} == ${->(child)}.length) {
-                    output = output && true; 
+                    output = output && true;
                 } else {
                     output = output && false;
                 }
                 ${#visitedAllChilds} = output;
-            }          
+            }
         '
 }
 KnowledgeQuiz {
@@ -80,10 +83,10 @@ Starters{
 
         #[order]:Integer = '2'
 	title 'Elementary'
-        h1 'Tutorial for beginners: Introduction of the Game'
+        h1 'Tutorial for beginners'
 	#content:String ='~ return "[[=xml/starters.xhtml]]";'
 	#suit:String ='~ return "[[=xml/suitable.xhtml]]";'
-	
+
 }
 
 IntroductionOfTheChessPieces{
@@ -102,7 +105,7 @@ IntroductionOfTheChessPieces{
 
 }
 Pawn{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '1'
@@ -112,7 +115,7 @@ Pawn{
 
 }
 Knight{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '2'
@@ -124,7 +127,7 @@ Knight{
 
 
 Bishop{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '3'
@@ -134,7 +137,7 @@ Bishop{
 
 }
 Rook{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '4'
@@ -144,7 +147,7 @@ Rook{
 
 }
 Queen{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '5'
@@ -154,7 +157,7 @@ Queen{
 
 }
 King{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '6'
@@ -167,7 +170,7 @@ King{
 Check{
         ->(extends) Starters
 
-        #suitability:Boolean = '${IntroductionOfTheChessPieces#visited} > 0'
+        #suitability:Boolean = '${IntroductionOfTheChessPieces#visitedAllChilds} || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '2'
         title 'Game Endings and Check'
@@ -178,7 +181,7 @@ Check{
 FormalGameRules{
         ->(extends) Starters
 
-        #suitability:Boolean = '${Check#visited} > 0'
+        #suitability:Boolean = '${Check#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '4'
         title 'General Game Rules'
@@ -189,7 +192,7 @@ FormalGameRules{
 CheckmatePatterns{
         ->(extends) Starters
 
-        #suitability:Boolean = '${Check#visited} > 0'
+        #suitability:Boolean = '${Check#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '3'
         title 'Simple patterns'
@@ -203,16 +206,16 @@ FirstAdvice{
         ->(child) OpeningWise
         ->(child) MakingWiseCaptures
 
-        #suitability:Boolean = '${Check#visited} > 0'
+        #suitability:Boolean = '${Check#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '5'
         title 'First Guidance'
         h1 'First Guidance and Advice for Playing Chess'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        #content:String ='~ return "[[=xml/start/advice.xhtml]]";'
 
 }
 OpeningWise{
-        
+
         ->(extends) FirstAdvice
 
         #[order]:Integer = '1'
@@ -224,7 +227,7 @@ OpeningWise{
 
 
 MakingWiseCaptures{
-        
+
         ->(extends) FirstAdvice
 
         #[order]:Integer = '2'
@@ -236,7 +239,7 @@ MakingWiseCaptures{
 Notation{
         ->(extends)Starters
 
-        #suitability:Boolean = '${Check#visited} > 0'
+        #suitability:Boolean = '${Check#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100 || ${KnowledgeQuiz#alge_knowledge}.intValue() == 100'
 
         #[order]:Integer = '6'
         title 'Notation of Chess Moves'
@@ -250,7 +253,11 @@ Optional{
         ->(child)PawnGame
         #[order]:Integer = '3'
         title 'Optional Material'
+<<<<<<< HEAD
         h1 'Optional Material'
+=======
+        h1 'Optional reading material'
+>>>>>>> origin/master
         #content:String ='~ return "[[=xml/optional.xhtml]]";'
 }
 
@@ -264,7 +271,7 @@ Quotes{
 PawnGame{
         ->(extends)Optional
 
-        #suitability:Boolean = '${Pawn#visited} > 0'
+        #suitability:Boolean = '${Pawn#visited} > 0 || ${KnowledgeQuiz#piece_knowledge}.intValue() == 100'
 
         #[order]:Integer = '3'
         title 'Pawn Game'
@@ -284,12 +291,18 @@ Professional{
         #[order]:Integer = '4'
         title 'Professional'
         #suitability:Boolean = '
-            (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge} > 99) 
-            && 
-            (${KnowledgeQuiz#piece_knowledge} > 99 || ${IntroductionOfTheChessPieces#visitedAllChilds})
+            (
+                (
+                    (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge}.intValue() == 100)
+                    &&
+                    (${KnowledgeQuiz#piece_knowledge}.intValue() == 100 || ${IntroductionOfTheChessPieces#visitedAllChilds})
+                )
+                ||
+                ${Quiz#easy}.intValue() == 100
+            )
             &&
             !(${->(prereq)#visited} == 0 && ${->(prereq)}.length != 0)
-        ' 
+        '
         h1 'Tutorial for advanced players'
 	#content:String = '~ return "[[=xml/prof/professional.xhtml]]";'
         #prof:String = '~ return "[[=xml/prof/prof.xhtml]]";'
@@ -431,8 +444,10 @@ Quiz{
         ->(extends) Professional
         #[order]:Integer = '3'
         title 'Best move quiz'
-        h1 'Tutorial for professional players'
-        #content:String ='~ return "[[=placeholder.xhtml]]";'
+        h1 'What is the best move?'
+        #easy:Double = '-1.0'
+        #advanced:Double = '-1.0'
+        #content:String ='~ return "[[=xml/prof/quiz.xhtml]]";'
 
 }
 Clock{
