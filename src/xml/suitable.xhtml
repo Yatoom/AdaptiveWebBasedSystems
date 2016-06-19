@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <main xmlns:gale="http://gale.tue.nl/adaptation">
     <gale:if expr="!${#suitability}"><gale:then>
-    <div style="width: 400px;
-         max-width: 90%;
-         float: right;
-         margin: 10px;
-         text-align: justify;
-         border: 1px solid;
-         padding: 10px;">
-        <h3>Warning</h3>
-        <p>
-            The page you are currently viewing might be difficult to follow with your 
-            current chess knowledge. Please try to follow the learning guidance of the <b>recommended tabs</b>.
-        </p>
-        <p>
-            In case you are wondering why we are telling you this and think your chess 
-            play is quite professional, then please let us check that by making the 
-            <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
-        </p>
-    </div>
+            <div style="width: 400px;
+                 max-width: 90%;
+                 float: right;
+                 margin: 10px;
+                 text-align: justify;
+                 border: 1px solid;
+                 padding: 10px;">
+                <h3>Warning</h3>
+                <p>
+                    The page you are currently viewing might be difficult to follow with your 
+                    current chess knowledge. Please try to follow the learning guidance of the <b>recommended tabs</b>.
+                </p>
+                <gale:if expr="!${KnowledgeQuiz#taken}">
+                    <gale:then>
+                        <p>
+                            In case you are wondering why we are telling you this and think your chess 
+                            play is good enough to follow these topics, then please let us check that by making the 
+                            <gale:a>knowledge quiz<gale:attr-variable name="href" expr="&quot;KnowledgeQuiz&quot;"/></gale:a>.
+                        </p>
+                    </gale:then>
+                </gale:if>
+            </div>
+            </div>
         </gale:then>
-        </gale:if>
+    </gale:if>
 </main>
