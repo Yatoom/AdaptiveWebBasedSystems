@@ -1,4 +1,4 @@
-$options { default.properties "event;strict"} 
+$options { default.properties "event;strict"}
 
 General{
         ->(child) Chess
@@ -13,24 +13,24 @@ General{
         #visitedChilds:Integer = '0'
         #visitedAllChilds:Boolean = 'false'
         event + '
-            if (${#suitability}) { 
+            if (${#suitability}) {
                 ${#visited}++;
             }
-            
-            if (${#visited} == 1) { 
+
+            if (${#visited} == 1) {
                 ${<-(child)#visitedChilds}++;
                 if (${->(child)}.length == 0) {
                     ${#visitedAllChilds} = true;
                 }
             }
 
-            if (${#visited} == 1) { 
+            if (${#visited} == 1) {
                 Object siblings[] = ${<-(child)=>(child)#visitedAllChilds};
                 Object siblingss[] = ${<-(child)->(child)};
                 boolean siblings_check = true;
                 for (int i = 0; i < siblings.length; i++) {
                     if (!siblingss[i].equals(${.})) {
-                        siblings_check = siblings_check && ((Boolean) siblings[i]); 
+                        siblings_check = siblings_check && ((Boolean) siblings[i]);
                     }
                 }
                 ${<-(child)#visitedAllChilds} = siblings_check;
@@ -43,12 +43,12 @@ General{
                     output = output && ((Boolean) childs[i]) && ((Integer) childss[i]) > 0;
                 }
                 if (${#visitedChilds} == ${->(child)}.length) {
-                    output = output && true; 
+                    output = output && true;
                 } else {
                     output = output && false;
                 }
                 ${#visitedAllChilds} = output;
-            }          
+            }
         '
 }
 KnowledgeQuiz {
@@ -85,7 +85,7 @@ Starters{
         h1 'Tutorial for beginners'
 	#content:String ='~ return "[[=xml/starters.xhtml]]";'
 	#suit:String ='~ return "[[=xml/suitable.xhtml]]";'
-	
+
 }
 
 IntroductionOfTheChessPieces{
@@ -104,7 +104,7 @@ IntroductionOfTheChessPieces{
 
 }
 Pawn{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '1'
@@ -114,7 +114,7 @@ Pawn{
 
 }
 Knight{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '2'
@@ -126,7 +126,7 @@ Knight{
 
 
 Bishop{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '3'
@@ -136,7 +136,7 @@ Bishop{
 
 }
 Rook{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '4'
@@ -146,7 +146,7 @@ Rook{
 
 }
 Queen{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '5'
@@ -156,7 +156,7 @@ Queen{
 
 }
 King{
-        
+
         ->(extends)IntroductionOfTheChessPieces
 
         #[order]:Integer = '6'
@@ -214,7 +214,7 @@ FirstAdvice{
 
 }
 OpeningWise{
-        
+
         ->(extends) FirstAdvice
 
         #[order]:Integer = '1'
@@ -226,7 +226,7 @@ OpeningWise{
 
 
 MakingWiseCaptures{
-        
+
         ->(extends) FirstAdvice
 
         #[order]:Integer = '2'
@@ -288,8 +288,8 @@ Professional{
         #suitability:Boolean = '
             (
                 (
-                    (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge}.intValue() == 100) 
-                    && 
+                    (${Notation#visited} > 0 || ${KnowledgeQuiz#alge_knowledge}.intValue() == 100)
+                    &&
                     (${KnowledgeQuiz#piece_knowledge}.intValue() == 100 || ${IntroductionOfTheChessPieces#visitedAllChilds})
                 )
                 ||
@@ -297,7 +297,7 @@ Professional{
             )
             &&
             !(${->(prereq)#visited} == 0 && ${->(prereq)}.length != 0)
-        ' 
+        '
         h1 'Tutorial for advanced players'
 	#content:String = '~ return "[[=xml/prof/professional.xhtml]]";'
         #prof:String = '~ return "[[=xml/prof/prof.xhtml]]";'

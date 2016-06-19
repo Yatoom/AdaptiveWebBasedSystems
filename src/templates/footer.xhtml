@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<footer class="footer" xmlns:gale="http://gale.tue.nl/adaptation">   
+<footer class="footer" xmlns:gale="http://gale.tue.nl/adaptation">
     <div class="grid">
         <gale:if expr="(#{General#count, 0}) != null &amp;&amp; (#{General#last, &quot;&quot;}) != null">
             <gale:then>
                 <gale:for var="layer1" expr="${General->(child)}" sort="${#order}">
+
                     <gale:if expr="${General#count} == 0">
                         <gale:then>
                             <gale:if expr="${%layer1} == ${.}">
                                 <gale:then>
                                     <gale:if expr="(#{General#count, 1}) != null &amp;&amp; !${General#last}.equals(&quot;&quot;)">
                                         <gale:then>
-                                            <gale:a>previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
+                                            <!-- Previous -->
+                                            <gale:a><i class="fa fa-arrow-left" aria-hidden="true"></i> previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
                                         </gale:then>
                                     </gale:if>
                                 </gale:then>
@@ -22,10 +24,12 @@
                             </gale:if>
                         </gale:then>
                     </gale:if>
+
                     <gale:if expr="${General#count} == 1 &amp;&amp; ${%layer1#suitability} &amp;&amp; ${%layer1} != ${.}">
                         <gale:then>
                             <gale:if expr="(#{General#count, 2}) != null"></gale:if>
-                            <gale:a style="float: right;">next<gale:attr-variable name="href" expr="&quot;%layer1&quot;"/></gale:a>
+                            <!-- next -->
+                            <gale:a style="float: right;"><gale:variable expr="${%layer1?title}" /> <i class="fa fa-arrow-right" aria-hidden="true"></i><gale:attr-variable name="href" expr="&quot;%layer1&quot;"/></gale:a>
                         </gale:then>
                     </gale:if>
 
@@ -37,7 +41,8 @@
                                     <gale:then>
                                         <gale:if expr="(#{General#count, 1}) != null &amp;&amp; !${General#last}.equals(&quot;&quot;)">
                                             <gale:then>
-                                                <gale:a>previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
+                                                <!-- previous -->
+                                                <gale:a><i class="fa fa-arrow-left" aria-hidden="true"></i> previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
                                             </gale:then>
                                         </gale:if>
                                     </gale:then>
@@ -52,7 +57,8 @@
                         <gale:if expr="${General#count} == 1 &amp;&amp; ${%layer2#suitability} &amp;&amp; ${%layer2} != ${.}">
                             <gale:then>
                                 <gale:if expr="(#{General#count, 2}) != null"></gale:if>
-                                <gale:a style="float: right;">next<gale:attr-variable name="href" expr="&quot;%layer2&quot;"/></gale:a>
+                                <!-- next -->
+                                <gale:a style="float: right;"><gale:variable expr="${%layer2?title}" /> <i class="fa fa-arrow-right" aria-hidden="true"></i><gale:attr-variable name="href" expr="&quot;%layer2&quot;"/></gale:a>
                             </gale:then>
                         </gale:if>
 
@@ -66,7 +72,8 @@
                                         <gale:then>
                                             <gale:if expr="(#{General#count, 1}) != null &amp;&amp; !${General#last}.equals(&quot;&quot;)">
                                                 <gale:then>
-                                                    <gale:a>previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
+                                                    <!-- previous -->
+                                                    <gale:a><i class="fa fa-arrow-left" aria-hidden="true"></i> previous<gale:attr-variable name="href" expr="${General#last}"/></gale:a>
                                                 </gale:then>
                                             </gale:if>
                                         </gale:then>
@@ -81,7 +88,8 @@
                             <gale:if expr="${General#count} == 1 &amp;&amp; ${%layer3#suitability} &amp;&amp; ${%layer3} != ${.}">
                                 <gale:then>
                                     <gale:if expr="(#{General#count, 2}) != null"></gale:if>
-                                    <gale:a style="float: right;">next<gale:attr-variable name="href" expr="&quot;%layer3&quot;"/></gale:a>
+                                    <!-- next -->
+                                    <gale:a style="float: right;"><gale:variable expr="${%layer3?title}" /> <i class="fa fa-arrow-right" aria-hidden="true"></i><gale:attr-variable name="href" expr="&quot;%layer3&quot;"/></gale:a>
                                 </gale:then>
                             </gale:if>
 
